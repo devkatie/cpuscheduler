@@ -9,7 +9,7 @@ public class Priority {
 	private Process[] processes;
 	private List<Process> processesList;
 	
-	public Priority(int timeframe, Process[] processes, boolean isPreemptive) {
+	public Priority(int timeframe, Process[] processes) {
 		this.timeframe = timeframe;
 		this.processes = processes;
 		createProcessList();

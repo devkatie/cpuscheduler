@@ -31,7 +31,7 @@ public class ShortestRemainingTimeFirst {
 				if (timer >= processesList.get(i).getArrivalTime()
 						&& !localProcessesList.contains(processesList.get(i))) {
 					localProcessesList.add(processesList.get(i));
-					sortByBurstTime(localProcessesList);
+					
 				}
 			}
 			if (index >= localProcessesList.size() || localProcessesList.get(index).getArrivalTime() > timer) {

@@ -7,11 +7,11 @@ public class Demo {
 	public static void main(String[] args) {
 
 		int timeframe = 200;
-		int[] burstTimes = {10, 20, 30, 40, 50};
-		int[] arrivalTimes = {0,0,0,0,0};
+		int[] burstTimes = {10, 5, 20, 10, 20};
+		int[] arrivalTimes = {0,1,2,3,4};
 		int[] priorityLevels = {40, 0, 50, 10, 0};
 
-		ProcessBag bag = new ProcessBag(timeframe, burstTimes, arrivalTimes, priorityLevels);
+		ProcessBag bag = new ProcessBag(timeframe, burstTimes, arrivalTimes, true);
 		System.out.println(Arrays.toString(bag.getJobQueue()));
 
 		for (int i = 0; i < bag.getProcesses().length; i++) {

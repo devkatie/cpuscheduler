@@ -31,6 +31,7 @@ public class ShortestJobFirst {
 				if (timer >= processesList.get(i).getArrivalTime()
 						&& !localProcessesList.contains(processesList.get(i))) {
 					localProcessesList.add(processesList.get(i));
+					
 				}
 			}
 			if (index >= localProcessesList.size() || localProcessesList.get(index).getArrivalTime() > timer) {

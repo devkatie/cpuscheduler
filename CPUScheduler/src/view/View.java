@@ -49,8 +49,6 @@ public class View extends Application {
 		//
 		Scene primaryScene;
 		
-		FlowPane mainPane = new FlowPane();
-		
 		// setting up the greeting/title box
 		VBox titleBox = new VBox();
 		titleBox.setAlignment(Pos.CENTER);

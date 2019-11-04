@@ -29,10 +29,13 @@ public class FirstComeFirstServe {
 				jobQueue[timer] = 99;
 				timer++;
 			} else if (processesList.get(index).getBurstTime() == 0) {
-				processes[processesList.get(index).getProcessNumber() - 1].setTurnaroundTime(timer);
+
 				processes[processesList.get(index).getProcessNumber() - 1].setWaitingTime(
 						timer - processes[processesList.get(index).getProcessNumber() - 1].getArrivalTime()
 								- processes[processesList.get(index).getProcessNumber() - 1].getBurstTime());
+				processes[processesList.get(index).getProcessNumber() - 1]
+						.setTurnaroundTime(processes[processesList.get(index).getProcessNumber() - 1].getWaitingTime()
+								+ processes[processesList.get(index).getProcessNumber() - 1].getBurstTime());
 				index++;
 
 			} else {

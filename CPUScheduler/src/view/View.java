@@ -30,6 +30,8 @@ import javafx.stage.Stage;
 
 public class View extends Application {
 
+	Scene PRIMARY_SCENE;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -47,7 +49,6 @@ public class View extends Application {
 		// if no internet access -> uncomment this & paste path to img
 		// primaryStage.getIcons().add(new Image("/path/to/javaicon.png"));
 		//
-		Scene primaryScene;
 		
 		// setting up the greeting/title box
 		VBox titleBox = new VBox();
@@ -521,9 +522,13 @@ public class View extends Application {
 		mainVBox.getChildren().addAll(selections, processDisplayBox, ganttHBox, ganttChart);
 		
 		// finalization
-		primaryScene = new Scene(mainVBox, 700, 600);
-		primaryStage.setScene(primaryScene);
+		PRIMARY_SCENE = new Scene(mainVBox, 700, 600);
+		primaryStage.setScene(PRIMARY_SCENE);
 		primaryStage.show();
+	}
+	
+	public Scene getScene() {
+		return PRIMARY_SCENE;
 	}
 	
 }

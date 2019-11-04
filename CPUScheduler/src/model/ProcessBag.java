@@ -4,8 +4,8 @@ public class ProcessBag {
 
 	private Process[] processes;
 	private int timeframe;
-	private int averageWaitingTime;
-	private int averageTurnaroundTime;
+	private double averageWaitingTime;
+	private double averageTurnaroundTime;
 	private int quantum;
 	private int[] jobQueue;
 	
@@ -14,7 +14,7 @@ public class ProcessBag {
 		this.timeframe = timeframe;
 		this.processes = new Process[burstTimes.length];
 		createProcesses(burstTimes, arrivalTimes);
-		this.jobQueue = new FirstComeFirstServe(timeframe, processes).getJobQueue();
+		this.jobQueue = new FirstComeFirstServe(this.timeframe, this.processes).getJobQueue();
 		calculateAverages();
 	}
 	
@@ -53,7 +53,8 @@ public class ProcessBag {
 	
 	private void createProcesses(int[] burstTimes, int[] arrivalTimes) {
 		for(int i = 0; i < burstTimes.length; i++) {
-			this.processes[i] = new Process(burstTimes[i], arrivalTimes[i]);			
+			this.processes[i] = new Process(burstTimes[i], arrivalTimes[i]);
+			this.processes[i].setProcessNumber(i + 1);
 		}
 
 	}
@@ -68,12 +69,19 @@ public class ProcessBag {
 	private void calculateAverages() {
 		int waitingTimeSum = 0;
 		int turnaroundTimeSum = 0;
+		double total = 0;
 		for(int i = 0; i < this.processes.length; i++) {
 			waitingTimeSum += this.processes[i].getWaitingTime();
 			turnaroundTimeSum += this.processes[i].getTurnaroundTime();
+			if(this.processes[i].getTurnaroundTime() != 0) {
+				total++;
+			}
 		}
-		this.averageWaitingTime = waitingTimeSum / this.processes.length;
-		this.averageTurnaroundTime = turnaroundTimeSum / this.processes.length;
+		if(total==0) {
+			total = 1;
+		}
+		this.averageWaitingTime = waitingTimeSum / total;
+		this.averageTurnaroundTime = turnaroundTimeSum / total;
 		
 	}
 	
@@ -87,7 +95,7 @@ public class ProcessBag {
 	}
 
 
-	public int getAverageWaitingTime() {
+	public double getAverageWaitingTime() {
 		return averageWaitingTime;
 	}
 
@@ -97,7 +105,7 @@ public class ProcessBag {
 	}
 
 
-	public int getAverageTurnaroundTime() {
+	public double getAverageTurnaroundTime() {
 		return averageTurnaroundTime;
 	}
 

@@ -32,9 +32,9 @@ public class View extends Application {
 
 	Scene PRIMARY_SCENE;
 	
-//	public static void main(String[] args) {
-//		launch(args);
-//	}
+	public static void main(String[] args) {
+		launch(args);
+	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {

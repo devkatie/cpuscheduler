@@ -104,9 +104,12 @@ public class View extends Application {
 		Label burstTimeLabel = new Label("Burst Time:");
 		Label waitTimeLabel = new Label("Wait Time:");
 		Label totalTimeLabel = new Label("Total Time:");
+		Label priorityLabel = new Label("Priority:");
+		Label arrivalLabel = new Label("Arrival:");
 		HBox displayTitles = new HBox();
-		displayTitles.getChildren().addAll(processLabel2, burstTimeLabel, waitTimeLabel, totalTimeLabel);
-		displayTitles.setSpacing(100);
+		displayTitles.getChildren().addAll(processLabel2, burstTimeLabel, waitTimeLabel, totalTimeLabel,
+				priorityLabel, arrivalLabel);
+		displayTitles.setSpacing(30);
 		displayTitles.setAlignment(Pos.BASELINE_CENTER);
 		
 		// first row of processes - "p1"
@@ -127,9 +130,31 @@ public class View extends Application {
         });
 		Label wait1 = new Label("1");
 		Label total1 = new Label("1");
+		TextField priority1 = new TextField();
+		priority1.setPromptText("priority");
+		priority1.setPrefWidth(50);
+		priority1.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,1}?")) {
+                    priority1.setText(oldValue);
+                }
+            }
+		});
+		TextField arrival1 = new TextField();
+		arrival1.setPromptText("time(ms)");
+		arrival1.setPrefWidth(50);
+		arrival1.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,3}?")) {
+                    arrival1.setText(oldValue);
+                }
+            }
+		});
 		HBox process1 = new HBox();
-		process1.getChildren().addAll(p1, burst1, wait1, total1);
-		process1.setSpacing(115);
+		process1.getChildren().addAll(p1, burst1, wait1, total1, priority1, arrival1);
+		process1.setSpacing(50);
 		process1.setAlignment(Pos.BASELINE_CENTER);
 		
 		Label p2 = new Label("Process 2");
@@ -146,9 +171,31 @@ public class View extends Application {
         });
 		Label wait2 = new Label("2");
 		Label total2 = new Label("2");
+		TextField priority2 = new TextField();
+		priority2.setPromptText("priority");
+		priority2.setPrefWidth(50);
+		priority2.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,1}?")) {
+                    priority2.setText(oldValue);
+                }
+            }
+		});
+		TextField arrival2 = new TextField();
+		arrival2.setPromptText("time(ms)");
+		arrival2.setPrefWidth(50);
+		arrival2.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,3}?")) {
+                    arrival2.setText(oldValue);
+                }
+            }
+		});
 		HBox process2 = new HBox();
-		process2.getChildren().addAll(p2, burst2, wait2, total2);
-		process2.setSpacing(115);
+		process2.getChildren().addAll(p2, burst2, wait2, total2, priority2, arrival2);
+		process2.setSpacing(50);
 		process2.setAlignment(Pos.BASELINE_CENTER);
 		
 		Label p3 = new Label("Process 3");
@@ -165,9 +212,31 @@ public class View extends Application {
         });
 		Label wait3 = new Label("3");
 		Label total3 = new Label("3");
+		TextField priority3 = new TextField();
+		priority3.setPromptText("priority");
+		priority3.setPrefWidth(50);
+		priority3.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,1}?")) {
+                    priority3.setText(oldValue);
+                }
+            }
+		});
+		TextField arrival3 = new TextField();
+		arrival3.setPromptText("time(ms)");
+		arrival3.setPrefWidth(50);
+		arrival3.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,3}?")) {
+                    arrival3.setText(oldValue);
+                }
+            }
+		});
 		HBox process3 = new HBox();
-		process3.getChildren().addAll(p3, burst3, wait3, total3);
-		process3.setSpacing(115);
+		process3.getChildren().addAll(p3, burst3, wait3, total3, priority3, arrival3);
+		process3.setSpacing(50);
 		process3.setAlignment(Pos.BASELINE_CENTER);
 		
 		Label p4 = new Label("Process 4");
@@ -184,9 +253,31 @@ public class View extends Application {
         });
 		Label wait4 = new Label("4");
 		Label total4 = new Label("4");
+		TextField priority4 = new TextField();
+		priority4.setPromptText("priority");
+		priority4.setPrefWidth(50);
+		priority4.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,1}?")) {
+                    priority4.setText(oldValue);
+                }
+            }
+		});
+		TextField arrival4 = new TextField();
+		arrival4.setPromptText("time(ms)");
+		arrival4.setPrefWidth(50);
+		arrival4.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,3}?")) {
+                    arrival4.setText(oldValue);
+                }
+            }
+		});
 		HBox process4 = new HBox();
-		process4.getChildren().addAll(p4, burst4, wait4, total4);
-		process4.setSpacing(115);
+		process4.getChildren().addAll(p4, burst4, wait4, total4, priority4, arrival4);
+		process4.setSpacing(50);
 		process4.setAlignment(Pos.BASELINE_CENTER);
 		
 		Label p5 = new Label("Process 5");
@@ -203,9 +294,31 @@ public class View extends Application {
         });
 		Label wait5 = new Label("5");
 		Label total5 = new Label("5");
+		TextField priority5 = new TextField();
+		priority5.setPromptText("priority");
+		priority5.setPrefWidth(50);
+		priority5.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,1}?")) {
+                    priority5.setText(oldValue);
+                }
+            }
+		});
+		TextField arrival5 = new TextField();
+		arrival5.setPromptText("time(ms)");
+		arrival5.setPrefWidth(50);
+		arrival5.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,3}?")) {
+                    arrival5.setText(oldValue);
+                }
+            }
+		});
 		HBox process5 = new HBox();
-		process5.getChildren().addAll(p5, burst5, wait5, total5);
-		process5.setSpacing(115);
+		process5.getChildren().addAll(p5, burst5, wait5, total5, priority5, arrival5);
+		process5.setSpacing(50);
 		process5.setAlignment(Pos.BASELINE_CENTER);
 		
 		Label p6 = new Label("Process 6");
@@ -222,9 +335,31 @@ public class View extends Application {
         });
 		Label wait6 = new Label("6");
 		Label total6 = new Label("6");
+		TextField priority6 = new TextField();
+		priority6.setPromptText("priority");
+		priority6.setPrefWidth(50);
+		priority6.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,1}?")) {
+                    priority6.setText(oldValue);
+                }
+            }
+		});
+		TextField arrival6 = new TextField();
+		arrival6.setPromptText("time(ms)");
+		arrival6.setPrefWidth(50);
+		arrival6.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,3}?")) {
+                    arrival6.setText(oldValue);
+                }
+            }
+		});
 		HBox process6 = new HBox();
-		process6.getChildren().addAll(p6, burst6, wait6, total6);
-		process6.setSpacing(115);
+		process6.getChildren().addAll(p6, burst6, wait6, total6, priority6, arrival6);
+		process6.setSpacing(50);
 		process6.setAlignment(Pos.BASELINE_CENTER);
 		
 		Label p7 = new Label("Process 7");
@@ -241,9 +376,31 @@ public class View extends Application {
         });
 		Label wait7 = new Label("7");
 		Label total7 = new Label("7");
+		TextField priority7 = new TextField();
+		priority7.setPromptText("priority");
+		priority7.setPrefWidth(50);
+		priority7.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,1}?")) {
+                    priority7.setText(oldValue);
+                }
+            }
+		});
+		TextField arrival7 = new TextField();
+		arrival7.setPromptText("time(ms)");
+		arrival7.setPrefWidth(50);
+		arrival7.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,3}?")) {
+                    arrival7.setText(oldValue);
+                }
+            }
+		});
 		HBox process7 = new HBox();
-		process7.getChildren().addAll(p7, burst7, wait7, total7);
-		process7.setSpacing(115);
+		process7.getChildren().addAll(p7, burst7, wait7, total7, priority7, arrival7);
+		process7.setSpacing(50);
 		process7.setAlignment(Pos.BASELINE_CENTER);
 		Label p8 = new Label("Process 8");
 		TextField burst8 = new TextField();
@@ -259,9 +416,31 @@ public class View extends Application {
         });
 		Label wait8 = new Label("8");
 		Label total8 = new Label("8");
+		TextField priority8 = new TextField();
+		priority8.setPromptText("priority");
+		priority8.setPrefWidth(50);
+		priority8.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,1}?")) {
+                    priority8.setText(oldValue);
+                }
+            }
+		});
+		TextField arrival8 = new TextField();
+		arrival8.setPromptText("time(ms)");
+		arrival8.setPrefWidth(50);
+		arrival8.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,3}?")) {
+                    arrival8.setText(oldValue);
+                }
+            }
+		});
 		HBox process8 = new HBox();
-		process8.getChildren().addAll(p8, burst8, wait8, total8);
-		process8.setSpacing(115);
+		process8.getChildren().addAll(p8, burst8, wait8, total8, priority8, arrival8);
+		process8.setSpacing(50);
 		process8.setAlignment(Pos.BASELINE_CENTER);
 		
 		//

@@ -72,7 +72,7 @@ public class View extends Application {
 		processCombos.getItems().add("7 Processes"); 
 		processCombos.getItems().add("8 Processes");
 		
-		Button randomBurstButton = new Button("Randomize Burst Times");
+		Button randomBurstButton = new Button("Randomize All Times");
 		Button calculate = new Button("Calculate");
 		
 		HBox processBox = new HBox(processLabel, processCombos, randomBurstButton, calculate);
@@ -84,6 +84,7 @@ public class View extends Application {
 		Label algoLabel = new Label("Algorithm to Test: ");
 		ComboBox<String> algoCombos = new ComboBox<String>();
 		algoCombos.setPromptText("--Select--");
+		algoCombos.getItems().add("PRI: Priority");
 		algoCombos.getItems().add("RR: Round Robin");
 		algoCombos.getItems().add("SJF: Shortest Job First");
 		algoCombos.getItems().add("FCFS: First Come First Serve");
@@ -108,7 +109,7 @@ public class View extends Application {
 		Label arrivalLabel = new Label("Arrival:");
 		HBox displayTitles = new HBox();
 		displayTitles.getChildren().addAll(processLabel2, burstTimeLabel, waitTimeLabel, totalTimeLabel,
-				priorityLabel, arrivalLabel);
+				arrivalLabel, priorityLabel);
 		displayTitles.setSpacing(30);
 		displayTitles.setAlignment(Pos.BASELINE_CENTER);
 		
@@ -153,7 +154,7 @@ public class View extends Application {
             }
 		});
 		HBox process1 = new HBox();
-		process1.getChildren().addAll(p1, burst1, wait1, total1, priority1, arrival1);
+		process1.getChildren().addAll(p1, burst1, wait1, total1, arrival1, priority1);
 		process1.setSpacing(50);
 		process1.setAlignment(Pos.BASELINE_CENTER);
 		
@@ -194,7 +195,7 @@ public class View extends Application {
             }
 		});
 		HBox process2 = new HBox();
-		process2.getChildren().addAll(p2, burst2, wait2, total2, priority2, arrival2);
+		process2.getChildren().addAll(p2, burst2, wait2, total2, arrival2, priority2);
 		process2.setSpacing(50);
 		process2.setAlignment(Pos.BASELINE_CENTER);
 		
@@ -235,7 +236,7 @@ public class View extends Application {
             }
 		});
 		HBox process3 = new HBox();
-		process3.getChildren().addAll(p3, burst3, wait3, total3, priority3, arrival3);
+		process3.getChildren().addAll(p3, burst3, wait3, total3, arrival3, priority3);
 		process3.setSpacing(50);
 		process3.setAlignment(Pos.BASELINE_CENTER);
 		
@@ -276,7 +277,7 @@ public class View extends Application {
             }
 		});
 		HBox process4 = new HBox();
-		process4.getChildren().addAll(p4, burst4, wait4, total4, priority4, arrival4);
+		process4.getChildren().addAll(p4, burst4, wait4, total4, arrival4, priority4);
 		process4.setSpacing(50);
 		process4.setAlignment(Pos.BASELINE_CENTER);
 		
@@ -317,7 +318,7 @@ public class View extends Application {
             }
 		});
 		HBox process5 = new HBox();
-		process5.getChildren().addAll(p5, burst5, wait5, total5, priority5, arrival5);
+		process5.getChildren().addAll(p5, burst5, wait5, total5, arrival5, priority5);
 		process5.setSpacing(50);
 		process5.setAlignment(Pos.BASELINE_CENTER);
 		
@@ -358,7 +359,7 @@ public class View extends Application {
             }
 		});
 		HBox process6 = new HBox();
-		process6.getChildren().addAll(p6, burst6, wait6, total6, priority6, arrival6);
+		process6.getChildren().addAll(p6, burst6, wait6, total6, arrival6, priority6);
 		process6.setSpacing(50);
 		process6.setAlignment(Pos.BASELINE_CENTER);
 		
@@ -399,7 +400,7 @@ public class View extends Application {
             }
 		});
 		HBox process7 = new HBox();
-		process7.getChildren().addAll(p7, burst7, wait7, total7, priority7, arrival7);
+		process7.getChildren().addAll(p7, burst7, wait7, total7, arrival7, priority7);
 		process7.setSpacing(50);
 		process7.setAlignment(Pos.BASELINE_CENTER);
 		Label p8 = new Label("Process 8");
@@ -439,7 +440,7 @@ public class View extends Application {
             }
 		});
 		HBox process8 = new HBox();
-		process8.getChildren().addAll(p8, burst8, wait8, total8, priority8, arrival8);
+		process8.getChildren().addAll(p8, burst8, wait8, total8, arrival8, priority8);
 		process8.setSpacing(50);
 		process8.setAlignment(Pos.BASELINE_CENTER);
 		
@@ -459,15 +460,201 @@ public class View extends Application {
 			// ? Random random = new Random();
 			// generate random int between 1 and 100
 			// (int)(Math.random()*((100 - 1) + 1)) + 1
-			burst1.setText(((int)(Math.random()*((25 - 1) + 1)) + 1) + "");
-			burst2.setText(((int)(Math.random()*((25 - 1) + 1)) + 1) + "");
-			burst3.setText(((int)(Math.random()*((25 - 1) + 1)) + 1) + "");
-			burst4.setText(((int)(Math.random()*((25 - 1) + 1)) + 1) + "");
-			burst5.setText(((int)(Math.random()*((25 - 1) + 1)) + 1) + "");
-			burst6.setText(((int)(Math.random()*((25 - 1) + 1)) + 1) + "");
-			burst7.setText(((int)(Math.random()*((25 - 1) + 1)) + 1) + "");
-			burst8.setText(((int)(Math.random()*((25 - 1) + 1)) + 1) + "");
-			
+			burst1.setText(new Random().nextInt(25 + 1) + "");
+			burst2.setText(new Random().nextInt(25 + 1) + "");
+			burst3.setText(new Random().nextInt(25 + 1) + "");
+			burst4.setText(new Random().nextInt(25 + 1) + "");
+			burst5.setText(new Random().nextInt(25 + 1) + "");
+			burst6.setText(new Random().nextInt(25 + 1) + "");
+			burst7.setText(new Random().nextInt(25 + 1) + "");
+			burst8.setText(new Random().nextInt(25 + 1) + "");
+			priority1.setText(new Random().nextInt(9 + 1) + "");
+			priority2.setText(new Random().nextInt(9 + 1) + "");
+			priority3.setText(new Random().nextInt(9 + 1) + "");
+			priority4.setText(new Random().nextInt(9 + 1) + "");
+			priority5.setText(new Random().nextInt(9 + 1) + "");
+			priority6.setText(new Random().nextInt(9 + 1) + "");
+			priority7.setText(new Random().nextInt(9 + 1) + "");
+			priority8.setText(new Random().nextInt(9 + 1) + "");
+			arrival1.setText(new Random().nextInt(9 + 1) + "");
+			arrival2.setText(new Random().nextInt(9 + 1) + "");
+			arrival3.setText(new Random().nextInt(9 + 1) + "");
+			arrival4.setText(new Random().nextInt(9 + 1) + "");
+			arrival5.setText(new Random().nextInt(9 + 1) + "");
+			arrival6.setText(new Random().nextInt(9 + 1) + "");
+			arrival7.setText(new Random().nextInt(9 + 1) + "");
+			arrival8.setText(new Random().nextInt(9 + 1) + "");
+		
+		});
+		//
+		// default = priority will be invisible
+		
+		// RR & PRI
+		// switch cases to "unlock" priority
+		/*
+		algoCombos.getItems().add("SRTF: Shortest Remaining Time First");
+		 */
+		algoCombos.setOnAction(e -> {
+			switch(algoCombos.getValue()) {
+			case "SRTF: Shortest Remaining Time First":
+				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
+				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
+				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
+				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
+				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
+				burst6.clear();
+				arrival6.clear();
+				priority6.clear();
+				burst7.clear();
+				arrival7.clear();
+				priority7.clear();
+				burst8.clear();
+				arrival8.clear();
+				priority8.clear();
+				break;
+			case "FCFS: First Come First Serve":
+				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
+				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
+				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
+				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
+				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
+				burst6.clear();
+				arrival6.clear();
+				priority6.clear();
+				burst7.clear();
+				arrival7.clear();
+				priority7.clear();
+				burst8.clear();
+				arrival8.clear();
+				priority8.clear();
+				break;
+			case "SJF: Shortest Job First":
+				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
+				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
+				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
+				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
+				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
+				burst6.clear();
+				arrival6.clear();
+				priority6.clear();
+				burst7.clear();
+				arrival7.clear();
+				priority7.clear();
+				burst8.clear();
+				arrival8.clear();
+				priority8.clear();
+				break;
+			case "PRI: Priority":
+				priorityLabel.setVisible(true);
+				priority1.setVisible(true);
+				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
+				priority2.setVisible(true);
+				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
+				priority3.setVisible(true);
+				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
+				priority4.setVisible(true);
+				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
+				priority5.setVisible(true);
+				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
+				priority6.setVisible(true);
+				burst6.clear();
+				arrival6.clear();
+				priority6.clear();
+				priority7.setVisible(true);
+				burst7.clear();
+				arrival7.clear();
+				priority7.clear();
+				priority8.setVisible(true);
+				burst8.clear();
+				arrival8.clear();
+				priority8.clear();
+				break;
+			case "RR: Round Robin":
+				priorityLabel.setVisible(true);
+				priority1.setVisible(true);
+				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
+				priority2.setVisible(true);
+				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
+				priority3.setVisible(true);
+				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
+				priority4.setVisible(true);
+				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
+				priority5.setVisible(true);
+				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
+				priority6.setVisible(true);
+				burst6.clear();
+				arrival6.clear();
+				priority6.clear();
+				priority7.setVisible(true);
+				burst7.clear();
+				arrival7.clear();
+				priority7.clear();
+				priority8.setVisible(true);
+				burst8.clear();
+				arrival8.clear();
+				priority8.clear();
+				break;
+			default:
+				priorityLabel.setVisible(false);
+				priority1.setVisible(false);
+				priority2.setVisible(false);
+				priority3.setVisible(false);
+				priority4.setVisible(false);
+				priority5.setVisible(false);
+				priority6.setVisible(false);
+				priority7.setVisible(false);
+				priority8.setVisible(false);
+			}
 		});
 		
 		//
@@ -488,6 +675,8 @@ public class View extends Application {
 			case "1 Process":
 				process1.setVisible(true);
 				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
 				process2.setVisible(false);
 				process3.setVisible(false);
 				process4.setVisible(false);
@@ -499,8 +688,12 @@ public class View extends Application {
 			case "2 Processes":
 				process1.setVisible(true);
 				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
 				process2.setVisible(true);
 				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
 				process3.setVisible(false);
 				process4.setVisible(false);
 				process5.setVisible(false);
@@ -511,10 +704,16 @@ public class View extends Application {
 			case "3 Processes":
 				process1.setVisible(true);
 				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
 				process2.setVisible(true);
 				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
 				process3.setVisible(true);
 				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
 				process4.setVisible(false);
 				process5.setVisible(false);
 				process6.setVisible(false);
@@ -524,12 +723,20 @@ public class View extends Application {
 			case "4 Processes":
 				process1.setVisible(true);
 				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
 				process2.setVisible(true);
 				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
 				process3.setVisible(true);
 				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
 				process4.setVisible(true);
 				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
 				process5.setVisible(false);
 				process6.setVisible(false);
 				process7.setVisible(false);
@@ -538,14 +745,24 @@ public class View extends Application {
 			case "5 Processes":
 				process1.setVisible(true);
 				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
 				process2.setVisible(true);
 				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
 				process3.setVisible(true);
 				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
 				process4.setVisible(true);
 				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
 				process5.setVisible(true);
 				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
 				process6.setVisible(false);
 				process7.setVisible(false);
 				process8.setVisible(false);
@@ -553,53 +770,95 @@ public class View extends Application {
 			case "6 Processes":
 				process1.setVisible(true);
 				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
 				process2.setVisible(true);
 				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
 				process3.setVisible(true);
 				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
 				process4.setVisible(true);
 				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
 				process5.setVisible(true);
 				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
 				process6.setVisible(true);
 				burst6.clear();
+				arrival6.clear();
+				priority6.clear();
 				process7.setVisible(false);
 				process8.setVisible(false);
 				break;
 			case "7 Processes":
 				process1.setVisible(true);
 				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
 				process2.setVisible(true);
 				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
 				process3.setVisible(true);
 				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
 				process4.setVisible(true);
 				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
 				process5.setVisible(true);
 				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
 				process6.setVisible(true);
 				burst6.clear();
+				arrival6.clear();
+				priority6.clear();
 				process7.setVisible(true);
 				burst7.clear();
+				arrival7.clear();
+				priority7.clear();
 				process8.setVisible(false);
 				break;
 			case "8 Processes":
 				process1.setVisible(true);
 				burst1.clear();
+				arrival1.clear();
+				priority1.clear();
 				process2.setVisible(true);
 				burst2.clear();
+				arrival2.clear();
+				priority2.clear();
 				process3.setVisible(true);
 				burst3.clear();
+				arrival3.clear();
+				priority3.clear();
 				process4.setVisible(true);
 				burst4.clear();
+				arrival4.clear();
+				priority4.clear();
 				process5.setVisible(true);
 				burst5.clear();
+				arrival5.clear();
+				priority5.clear();
 				process6.setVisible(true);
 				burst6.clear();
+				arrival6.clear();
+				priority6.clear();
 				process7.setVisible(true);
 				burst7.clear();
+				arrival7.clear();
+				priority7.clear();
 				process8.setVisible(true);
 				burst8.clear();
+				arrival8.clear();
+				priority8.clear();
 				break;
 			default:
 				process1.setVisible(false);

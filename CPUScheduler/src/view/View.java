@@ -471,8 +471,6 @@ public class View extends Application {
 		calculate.setOnAction(e -> {
 			
 			ProcessBag processBag = null;
-			//avgWaitTime
-			//avgTurnaroundTime
 			
 			switch(algoCombos.getValue()) {
 			case "PRI: Priority":

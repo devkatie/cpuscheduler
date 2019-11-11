@@ -33,7 +33,12 @@ public class ShortestJobFirst {
 					localProcessesList.add(processesList.get(i));
 					
 				}
+				
 			}
+			if(timer == 0) {
+				sortByBurstTime(localProcessesList);
+			}
+			
 			if (index >= localProcessesList.size() || localProcessesList.get(index).getArrivalTime() > timer) {
 				jobQueue[timer] = 99;
 				timer++;

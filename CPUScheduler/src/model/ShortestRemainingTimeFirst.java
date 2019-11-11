@@ -33,6 +33,10 @@ public class ShortestRemainingTimeFirst {
 					localProcessesList.add(processesList.get(i));
 					
 				}
+			sortByBurstTime(localProcessesList);
+			}
+			if(timer == 0) {
+				sortByBurstTime(localProcessesList);
 			}
 			if (index >= localProcessesList.size() || localProcessesList.get(index).getArrivalTime() > timer) {
 				jobQueue[timer] = 99;

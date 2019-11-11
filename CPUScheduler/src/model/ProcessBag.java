@@ -43,12 +43,11 @@ public class ProcessBag {
 
 	}
 
-	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes, int[] priorityLevels, int quantum) {
+	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes, int quantum) {
 		super();
 		this.timeframe = timeframe;
 		this.processes = new Process[burstTimes.length];
 		createProcesses(burstTimes, arrivalTimes);
-		addPriorityLevels(priorityLevels);
 		this.quantum = quantum;
 		this.jobQueue = new RoundRobin(timeframe, processes, quantum).getJobQueue();
 		calculateAverages();
@@ -64,7 +63,7 @@ public class ProcessBag {
 
 	private void addPriorityLevels(int[] priorityLevels) {
 		for (int i = 0; i < priorityLevels.length; i++) {
-			this.processes[i].setPriorityLevel(priorityLevels[i]);
+			this.processes[i].setPriorityLevel(10 - priorityLevels[i]);
 		}
 
 	}
@@ -86,6 +85,14 @@ public class ProcessBag {
 		this.averageWaitingTime = waitingTimeSum / total;
 		this.averageTurnaroundTime = turnaroundTimeSum / total;
 
+	}
+	
+	public int getProcessWaitingTime(int processNumber) {
+		return this.processes[processNumber - 1].getWaitingTime();
+	}
+	
+	public int getProcessTurnaroundTime(int processNumber) {
+		return this.processes[processNumber - 1].getWaitingTime();
 	}
 
 	public Process[] getProcesses() {

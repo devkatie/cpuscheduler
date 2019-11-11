@@ -27,11 +27,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.ProcessBag;
 
 public class View extends Application {
 
 	Scene PRIMARY_SCENE;
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -466,16 +467,147 @@ public class View extends Application {
 		// to determine witch algorithm to use. then, based off
 		// of the input values for each field, calculations will be done
 		calculate.setOnAction(e -> {
+			
 			switch(algoCombos.getValue()) {
 			case "PRI: Priority":
+				switch(processCombos.getValue()) {
+				case "1 Process":
+					// Process Bag for 1 process
+					break;
+				case "2 Processes":
+					// Process Bag for 2 processes
+					break;
+				case "3 Processes":
+					// Process Bag for 3 processes
+					break;
+				case "4 Processes":
+					// Process Bag for 4 processes
+					break;
+				case "5 Processes":
+					// PB for 5 processes
+					break;
+				case "6 Processes":
+					// PB for 6 processes
+					break;
+				case "7 Processes":
+					// PB for 7 processes
+					break;
+				case "8 Processes":
+					// PB for 8 processes
+					break;
+				}
 				break;
 			case "RR: Round Robin":
+				switch(processCombos.getValue()) {
+				case "1 Process":
+					// Process Bag for 1 process
+					break;
+				case "2 Processes":
+					// Process Bag for 2 processes
+					break;
+				case "3 Processes":
+					// Process Bag for 3 processes
+					break;
+				case "4 Processes":
+					// Process Bag for 4 processes
+					break;
+				case "5 Processes":
+					// PB for 5 processes
+					break;
+				case "6 Processes":
+					// PB for 6 processes
+					break;
+				case "7 Processes":
+					// PB for 7 processes
+					break;
+				case "8 Processes":
+					// PB for 8 processes
+					break;
+				}
 				break;
 			case "SJF: Shortest Job First":
+				switch(processCombos.getValue()) {
+				case "1 Process":
+					// Process Bag for 1 process
+					break;
+				case "2 Processes":
+					// Process Bag for 2 processes
+					break;
+				case "3 Processes":
+					// Process Bag for 3 processes
+					break;
+				case "4 Processes":
+					// Process Bag for 4 processes
+					break;
+				case "5 Processes":
+					// PB for 5 processes
+					break;
+				case "6 Processes":
+					// PB for 6 processes
+					break;
+				case "7 Processes":
+					// PB for 7 processes
+					break;
+				case "8 Processes":
+					// PB for 8 processes
+					break;
+				}
 				break;
 			case "FCFS: First Come First Serve":
+				switch(processCombos.getValue()) {
+				case "1 Process":
+					// Process Bag for 1 process
+					break;
+				case "2 Processes":
+					// Process Bag for 2 processes
+					break;
+				case "3 Processes":
+					// Process Bag for 3 processes
+					break;
+				case "4 Processes":
+					// Process Bag for 4 processes
+					break;
+				case "5 Processes":
+					// PB for 5 processes
+					break;
+				case "6 Processes":
+					// PB for 6 processes
+					break;
+				case "7 Processes":
+					// PB for 7 processes
+					break;
+				case "8 Processes":
+					// PB for 8 processes
+					break;
+				}
 				break;
 			case "SRTF: Shortest Remaining Time First":
+				switch(processCombos.getValue()) {
+				case "1 Process":
+					// Process Bag for 1 process
+					break;
+				case "2 Processes":
+					// Process Bag for 2 processes
+					break;
+				case "3 Processes":
+					// Process Bag for 3 processes
+					break;
+				case "4 Processes":
+					// Process Bag for 4 processes
+					break;
+				case "5 Processes":
+					// PB for 5 processes
+					break;
+				case "6 Processes":
+					// PB for 6 processes
+					break;
+				case "7 Processes":
+					// PB for 7 processes
+					break;
+				case "8 Processes":
+					// PB for 8 processes
+					break;
+				}
 				break;
 			}
 		});

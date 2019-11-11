@@ -59,6 +59,17 @@ public class View extends Application {
 		creditText.setFont(Font.font("Tahoma", FontPosture.ITALIC, 14));
 		titleBox.getChildren().addAll(titleText, creditText);
 		
+		// initializing stackpanes so they can be changed up later
+		// and pushed into gantt chart as needed
+		StackPane chart1 = null;
+		StackPane chart2 = null;
+		StackPane chart3 = null;
+		StackPane chart4 = null;
+		StackPane chart5 = null;
+		StackPane chart6 = null;
+		StackPane chart7 = null;
+		StackPane chart8 = null;
+		
 		// setting up the processBox & its features
 		Label processLabel = new Label("Number of Processes: ");
 		ComboBox<String> processCombos = new ComboBox<String>();
@@ -450,8 +461,23 @@ public class View extends Application {
 		
 		//
 		// calculates the cpu scheduler chosen
+		// depending on which algorithm is chosen by
+		// the user, the calculate button will use switch cases
+		// to determine witch algorithm to use. then, based off
+		// of the input values for each field, calculations will be done
 		calculate.setOnAction(e -> {
-			// write shit here for controller interaction (?)
+			switch(algoCombos.getValue()) {
+			case "PRI: Priority":
+				break;
+			case "RR: Round Robin":
+				break;
+			case "SJF: Shortest Job First":
+				break;
+			case "FCFS: First Come First Serve":
+				break;
+			case "SRTF: Shortest Remaining Time First":
+				break;
+			}
 		});
 		
 		//
@@ -945,7 +971,7 @@ public class View extends Application {
 		//
 		HBox ganttChart = new HBox();
 		
-		StackPane chart1 = new StackPane();
+		chart1 = new StackPane();
 		Text chart1text = new Text("P1");
 		chart1text.setFill(Color.LIGHTSLATEGRAY);
 		Rectangle slot1 = new Rectangle(50, 50);
@@ -953,7 +979,7 @@ public class View extends Application {
 		slot1.setStrokeWidth(3);
 		chart1.getChildren().addAll(slot1, chart1text);
 
-		StackPane chart2 = new StackPane();
+		chart2 = new StackPane();
 		Text chart2text = new Text("P2");
 		chart2text.setFill(Color.LIGHTSLATEGRAY);
 		Rectangle slot2 = new Rectangle(50, 50);
@@ -961,7 +987,7 @@ public class View extends Application {
 		slot2.setStrokeWidth(3);
 		chart2.getChildren().addAll(slot2, chart2text);
 		
-		StackPane chart3 = new StackPane();
+		chart3 = new StackPane();
 		Text chart3text = new Text("P3");
 		chart3text.setFill(Color.LIGHTSLATEGRAY);
 		Rectangle slot3 = new Rectangle(50, 50);
@@ -969,7 +995,7 @@ public class View extends Application {
 		slot3.setStrokeWidth(3);
 		chart3.getChildren().addAll(slot3, chart3text);
 		
-		StackPane chart4 = new StackPane();
+		chart4 = new StackPane();
 		Text chart4text = new Text("P4");
 		chart4text.setFill(Color.LIGHTSLATEGRAY);
 		Rectangle slot4 = new Rectangle(50, 50);
@@ -977,7 +1003,7 @@ public class View extends Application {
 		slot4.setStrokeWidth(3);
 		chart4.getChildren().addAll(slot4, chart4text);
 		
-		StackPane chart5 = new StackPane();
+		chart5 = new StackPane();
 		Text chart5text = new Text("P5");
 		chart5text.setFill(Color.LIGHTSLATEGRAY);
 		Rectangle slot5 = new Rectangle(50, 50);
@@ -985,7 +1011,7 @@ public class View extends Application {
 		slot5.setStrokeWidth(3);
 		chart5.getChildren().addAll(slot5, chart5text);
 		
-		StackPane chart6 = new StackPane();
+		chart6 = new StackPane();
 		Text chart6text = new Text("P6");
 		chart6text.setFill(Color.LIGHTSLATEGRAY);
 		Rectangle slot6 = new Rectangle(50, 50);
@@ -993,7 +1019,7 @@ public class View extends Application {
 		slot6.setStrokeWidth(3);
 		chart6.getChildren().addAll(slot6, chart6text);
 		
-		StackPane chart7 = new StackPane();
+		chart7 = new StackPane();
 		Text chart7text = new Text("P7");
 		chart7text.setFill(Color.LIGHTSLATEGRAY);
 		Rectangle slot7 = new Rectangle(50, 50);
@@ -1001,7 +1027,7 @@ public class View extends Application {
 		slot7.setStrokeWidth(3);
 		chart7.getChildren().addAll(slot7, chart7text);
 		
-		StackPane chart8 = new StackPane();
+		chart8 = new StackPane();
 		Text chart8text = new Text("P8");
 		chart8text.setFill(Color.LIGHTSLATEGRAY);
 		Rectangle slot8 = new Rectangle(50, 50);

@@ -70,7 +70,9 @@ public class View extends Application {
 		StackPane chart6 = null;
 		StackPane chart7 = null;
 		StackPane chart8 = null;
-		
+		Text avgWaitTime = new Text("0");;
+		Text avgTurnaroundTime = avgTurnaroundTime = new Text("0");;
+
 		// setting up the processBox & its features
 		Label processLabel = new Label("Number of Processes: ");
 		ComboBox<String> processCombos = new ComboBox<String>();
@@ -468,144 +470,268 @@ public class View extends Application {
 		// of the input values for each field, calculations will be done
 		calculate.setOnAction(e -> {
 			
+			ProcessBag processBag = null;
+			//avgWaitTime
+			//avgTurnaroundTime
+			
 			switch(algoCombos.getValue()) {
 			case "PRI: Priority":
 				switch(processCombos.getValue()) {
 				case "1 Process":
-					// Process Bag for 1 process
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					// Priority Process for 1 process
 					break;
 				case "2 Processes":
-					// Process Bag for 2 processes
+					// Priority Process for 2 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
-					// Process Bag for 3 processes
+					// Priority for 3 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
-					// Process Bag for 4 processes
+					// Priority for 4 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
-					// PB for 5 processes
+					// Priority for 5 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
-					// PB for 6 processes
+					// Priority for 6 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
-					// PB for 7 processes
+					// Priority for 7 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
-					// PB for 8 processes
+					// Priority for 8 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			case "RR: Round Robin":
 				switch(processCombos.getValue()) {
 				case "1 Process":
-					// Process Bag for 1 process
+					// RR for 1 process
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "2 Processes":
-					// Process Bag for 2 processes
+					// RR for 2 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
-					// Process Bag for 3 processes
+					// RR for 3 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
-					// Process Bag for 4 processes
+					// RR for 4 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
-					// PB for 5 processes
+					// RR for 5 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
-					// PB for 6 processes
+					// RR for 6 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
-					// PB for 7 processes
+					// RR for 7 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
-					// PB for 8 processes
+					// RR for 8 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			case "SJF: Shortest Job First":
 				switch(processCombos.getValue()) {
 				case "1 Process":
-					// Process Bag for 1 process
+					// SJF for 1 process
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "2 Processes":
-					// Process Bag for 2 processes
+					// SJF for 2 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
-					// Process Bag for 3 processes
+					// SJF for 3 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
-					// Process Bag for 4 processes
+					// SJF for 4 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
-					// PB for 5 processes
+					// SJF for 5 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
-					// PB for 6 processes
+					// SJF for 6 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
-					// PB for 7 processes
+					// SJF for 7 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
-					// PB for 8 processes
+					// SJF for 8 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			case "FCFS: First Come First Serve":
 				switch(processCombos.getValue()) {
 				case "1 Process":
-					// Process Bag for 1 process
+					// FCFS for 1 process
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "2 Processes":
-					// Process Bag for 2 processes
+					// FCFS for 2 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
-					// Process Bag for 3 processes
+					// FCFS for 3 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
-					// Process Bag for 4 processes
+					// FCFS for 4 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
-					// PB for 5 processes
+					// FCFS for 5 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
-					// PB for 6 processes
+					// FCFS for 6 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
-					// PB for 7 processes
+					// FCFS for 7 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
-					// PB for 8 processes
+					// FCFS for 8 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			case "SRTF: Shortest Remaining Time First":
 				switch(processCombos.getValue()) {
 				case "1 Process":
-					// Process Bag for 1 process
+					// SRTF for 1 process
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "2 Processes":
-					// Process Bag for 2 processes
+					// SRTF for 2 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
-					// Process Bag for 3 processes
+					// SRTF for 3 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
-					// Process Bag for 4 processes
+					// SRTF for 4 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
-					// PB for 5 processes
+					// SRTF for 5 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
-					// PB for 6 processes
+					// SRTF for 6 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
-					// PB for 7 processes
+					// SRTF for 7 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
-					// PB for 8 processes
+					// SRTF for 8 processes
+					
+					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
@@ -1066,10 +1192,6 @@ public class View extends Application {
 		
 		Label avgWaitLabel = new Label("Average Wait Time: ");
 		Label avgTurnaroundLabel = new Label("Average Turnaround Time: ");
-		// display avg wait time here??
-		Text avgWaitTime = new Text("0");
-		// display avg t/a time here??
-		Text avgTurnaroundTime = new Text("0");
 		
 		// RESET THESE WITH THE LAMBDA EXPRESSION FROM THE
 		// CALCULATE BUTTON ACTION IF THERE ARE GETTERS/SETTERS

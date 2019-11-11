@@ -489,7 +489,7 @@ public class View extends Application {
 		//
 		// default = priority will be invisible
 		
-		// RR & PRI
+		// PRI -
 		// switch cases to "unlock" priority
 		/*
 		algoCombos.getItems().add("SRTF: Shortest Remaining Time First");
@@ -497,79 +497,106 @@ public class View extends Application {
 		algoCombos.setOnAction(e -> {
 			switch(algoCombos.getValue()) {
 			case "SRTF: Shortest Remaining Time First":
+				priorityLabel.setVisible(false);
+				priority1.setVisible(false);
 				burst1.clear();
 				arrival1.clear();
 				priority1.clear();
+				priority2.setVisible(false);
 				burst2.clear();
 				arrival2.clear();
 				priority2.clear();
+				priority3.setVisible(false);
 				burst3.clear();
 				arrival3.clear();
 				priority3.clear();
+				priority4.setVisible(false);
 				burst4.clear();
 				arrival4.clear();
 				priority4.clear();
+				priority5.setVisible(false);
 				burst5.clear();
 				arrival5.clear();
 				priority5.clear();
+				priority6.setVisible(false);
 				burst6.clear();
 				arrival6.clear();
 				priority6.clear();
+				priority7.setVisible(false);
 				burst7.clear();
 				arrival7.clear();
 				priority7.clear();
+				priority8.setVisible(false);
 				burst8.clear();
 				arrival8.clear();
 				priority8.clear();
 				break;
 			case "FCFS: First Come First Serve":
+				priorityLabel.setVisible(false);
+				priority1.setVisible(false);
 				burst1.clear();
 				arrival1.clear();
 				priority1.clear();
+				priority2.setVisible(false);
 				burst2.clear();
 				arrival2.clear();
 				priority2.clear();
+				priority3.setVisible(false);
 				burst3.clear();
 				arrival3.clear();
 				priority3.clear();
+				priority4.setVisible(false);
 				burst4.clear();
 				arrival4.clear();
 				priority4.clear();
+				priority5.setVisible(false);
 				burst5.clear();
 				arrival5.clear();
 				priority5.clear();
+				priority6.setVisible(false);
 				burst6.clear();
 				arrival6.clear();
 				priority6.clear();
+				priority7.setVisible(false);
 				burst7.clear();
 				arrival7.clear();
 				priority7.clear();
+				priority8.setVisible(false);
 				burst8.clear();
 				arrival8.clear();
 				priority8.clear();
 				break;
 			case "SJF: Shortest Job First":
+				priorityLabel.setVisible(false);
+				priority1.setVisible(false);
 				burst1.clear();
 				arrival1.clear();
 				priority1.clear();
+				priority2.setVisible(false);
 				burst2.clear();
 				arrival2.clear();
 				priority2.clear();
+				priority3.setVisible(false);
 				burst3.clear();
 				arrival3.clear();
 				priority3.clear();
+				priority4.setVisible(false);
 				burst4.clear();
 				arrival4.clear();
 				priority4.clear();
+				priority5.setVisible(false);
 				burst5.clear();
 				arrival5.clear();
 				priority5.clear();
+				priority6.setVisible(false);
 				burst6.clear();
 				arrival6.clear();
 				priority6.clear();
+				priority7.setVisible(false);
 				burst7.clear();
 				arrival7.clear();
 				priority7.clear();
+				priority8.setVisible(false);
 				burst8.clear();
 				arrival8.clear();
 				priority8.clear();
@@ -610,36 +637,36 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "RR: Round Robin":
-				priorityLabel.setVisible(true);
-				priority1.setVisible(true);
+				priorityLabel.setVisible(false);
+				priority1.setVisible(false);
 				burst1.clear();
 				arrival1.clear();
 				priority1.clear();
-				priority2.setVisible(true);
+				priority2.setVisible(false);
 				burst2.clear();
 				arrival2.clear();
 				priority2.clear();
-				priority3.setVisible(true);
+				priority3.setVisible(false);
 				burst3.clear();
 				arrival3.clear();
 				priority3.clear();
-				priority4.setVisible(true);
+				priority4.setVisible(false);
 				burst4.clear();
 				arrival4.clear();
 				priority4.clear();
-				priority5.setVisible(true);
+				priority5.setVisible(false);
 				burst5.clear();
 				arrival5.clear();
 				priority5.clear();
-				priority6.setVisible(true);
+				priority6.setVisible(false);
 				burst6.clear();
 				arrival6.clear();
 				priority6.clear();
-				priority7.setVisible(true);
+				priority7.setVisible(false);
 				burst7.clear();
 				arrival7.clear();
 				priority7.clear();
-				priority8.setVisible(true);
+				priority8.setVisible(false);
 				burst8.clear();
 				arrival8.clear();
 				priority8.clear();
@@ -872,6 +899,17 @@ public class View extends Application {
 				break;
 			}
 		});
+		
+		
+		//
+		//
+		// displaying the averages 
+		//
+		
+		Label avgWaitLabel = new Label("Average Wait Time: ");
+		Label avgTurnaroundLabel = new Label("Average Turnaround Time: ");
+		// display avg wait time here??
+		// display avg t/a time here??
 				
 		VBox processDisplayBox = new VBox();
 		processDisplayBox.setSpacing(5);
@@ -885,7 +923,9 @@ public class View extends Application {
 		ganttHBox.setAlignment(Pos.CENTER);
 		
 		//
+		//
 		// Visualization of Gantt Chart
+		//
 		HBox ganttChart = new HBox();
 		
 		StackPane chart1 = new StackPane();
@@ -957,10 +997,10 @@ public class View extends Application {
 		ganttChart.setAlignment(Pos.CENTER);
 		
 		VBox mainVBox = new VBox();
-		mainVBox.getChildren().addAll(selections, processDisplayBox, ganttHBox, ganttChart);
+		mainVBox.getChildren().addAll(selections, processDisplayBox, new Separator(), ganttHBox, ganttChart);
 		
 		// finalization
-		PRIMARY_SCENE = new Scene(mainVBox, 700, 600);
+		PRIMARY_SCENE = new Scene(mainVBox, 800, 700);
 		primaryStage.setScene(PRIMARY_SCENE);
 		primaryStage.show();
 	}

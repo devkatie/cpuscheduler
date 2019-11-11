@@ -909,7 +909,24 @@ public class View extends Application {
 		Label avgWaitLabel = new Label("Average Wait Time: ");
 		Label avgTurnaroundLabel = new Label("Average Turnaround Time: ");
 		// display avg wait time here??
+		Text avgWaitTime = new Text("0");
 		// display avg t/a time here??
+		Text avgTurnaroundTime = new Text("0");
+		
+		// RESET THESE WITH THE LAMBDA EXPRESSION FROM THE
+		// CALCULATE BUTTON ACTION IF THERE ARE GETTERS/SETTERS
+		// TO DO SO! :D
+		HBox avg1 = new HBox();
+		avg1.getChildren().addAll(avgWaitLabel, avgWaitTime);
+		avg1.setAlignment(Pos.CENTER);
+		avg1.setPadding(new Insets(10, 10, 10, 10));
+		HBox avg2 = new HBox();
+		avg2.getChildren().addAll(avgTurnaroundLabel, avgTurnaroundTime);
+		avg2.setAlignment(Pos.CENTER);
+		avg2.setPadding(new Insets(10, 10, 10, 10));
+		VBox averageBox = new VBox();
+		averageBox.getChildren().addAll(avg1, avg2);
+		averageBox.setPadding(new Insets(5, 5, 5, 5));
 				
 		VBox processDisplayBox = new VBox();
 		processDisplayBox.setSpacing(5);
@@ -997,7 +1014,7 @@ public class View extends Application {
 		ganttChart.setAlignment(Pos.CENTER);
 		
 		VBox mainVBox = new VBox();
-		mainVBox.getChildren().addAll(selections, processDisplayBox, new Separator(), ganttHBox, ganttChart);
+		mainVBox.getChildren().addAll(selections, processDisplayBox, averageBox, new Separator(), ganttHBox, ganttChart);
 		
 		// finalization
 		PRIMARY_SCENE = new Scene(mainVBox, 800, 700);

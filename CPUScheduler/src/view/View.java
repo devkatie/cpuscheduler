@@ -30,6 +30,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.CalculatorAlert;
 import model.GanttSceneBuilder;
+import model.GanttStringBuilder;
+import model.Process;
 import model.ProcessBag;
 
 public class View extends Application {
@@ -784,6 +786,7 @@ public class View extends Application {
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes);
+				
 //				System.out.println("FCFS");
 				break;
 			case 1:
@@ -815,8 +818,26 @@ public class View extends Application {
 			
 			}
 			
+			String ganttString = new GanttStringBuilder(processBag).getGanttString();
+//			testing out that this implementation ( ^ ) works
+//			System.out.println(ganttString); 
+			String[] ganttArray = ganttString.split(" -> ");
+			String[] ganttChartArray = new String[200];
+			int num = 0;
+			for(int i = 0; i < ganttArray.length; i++) {
+				if(!(ganttArray[i].equals("IDLE"))) {
+					ganttChartArray[num] = ganttArray[i];
+					num++;
+				}
+			}
+			for (int i = 0; i < ganttChartArray.length; i++) {
+				if(ganttChartArray[i] != null) {
+					System.out.print(ganttChartArray[i] + " ");
+				}
+			}
 			
-			new GanttSceneBuilder(processBag).showGanttScene();
+			
+//			new GanttSceneBuilder(processBag).showGanttScene();
 			
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
 			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));
@@ -830,30 +851,30 @@ public class View extends Application {
 			// ? Random random = new Random();
 			// generate random int between 1 and 100
 			// (int)(Math.random()*((100 - 1) + 1)) + 1
-			burst1.setText(new Random().nextInt(25 + 1) + 1 +"");
-			burst2.setText(new Random().nextInt(25 + 1) + 1+ "");
-			burst3.setText(new Random().nextInt(25 + 1) + 1+ "");
-			burst4.setText(new Random().nextInt(25 + 1) + 1+ "");
-			burst5.setText(new Random().nextInt(25 + 1) + 1+ "");
-			burst6.setText(new Random().nextInt(25 + 1) + 1+ "");
-			burst7.setText(new Random().nextInt(25 + 1) + 1+ "");
-			burst8.setText(new Random().nextInt(25 + 1) + 1+ "");
-			priority1.setText(new Random().nextInt(9 + 1) + 1+ "");
-			priority2.setText(new Random().nextInt(9 + 1) + 1+ "");
-			priority3.setText(new Random().nextInt(9 + 1) + 1+ "");
-			priority4.setText(new Random().nextInt(9 + 1) + 1+ "");
-			priority5.setText(new Random().nextInt(9 + 1) + 1+ "");
-			priority6.setText(new Random().nextInt(9 + 1) + 1+ "");
-			priority7.setText(new Random().nextInt(9 + 1) + 1+ "");
-			priority8.setText(new Random().nextInt(9 + 1) + 1+ "");
-			arrival1.setText(new Random().nextInt(9 + 1) + 1+ "");
-			arrival2.setText(new Random().nextInt(9 + 1) + 1+ "");
-			arrival3.setText(new Random().nextInt(9 + 1) + 1+ "");
-			arrival4.setText(new Random().nextInt(9 + 1) + 1+ "");
-			arrival5.setText(new Random().nextInt(9 + 1) + 1+ "");
-			arrival6.setText(new Random().nextInt(9 + 1) + 1+ "");
-			arrival7.setText(new Random().nextInt(9 + 1) + 1+ "");
-			arrival8.setText(new Random().nextInt(9 + 1) + 1+ "");
+			burst1.setText(new Random().nextInt(25 - 1) + 1 +"");
+			burst2.setText(new Random().nextInt(25 - 1) + 1+ "");
+			burst3.setText(new Random().nextInt(25 - 1) + 1+ "");
+			burst4.setText(new Random().nextInt(25 - 1) + 1+ "");
+			burst5.setText(new Random().nextInt(25 - 1) + 1+ "");
+			burst6.setText(new Random().nextInt(25 - 1) + 1+ "");
+			burst7.setText(new Random().nextInt(25 - 1) + 1+ "");
+			burst8.setText(new Random().nextInt(25 - 1) + 1+ "");
+			priority1.setText(new Random().nextInt(9 - 1) + 1+ "");
+			priority2.setText(new Random().nextInt(9 - 1) + 1+ "");
+			priority3.setText(new Random().nextInt(9 - 1) + 1+ "");
+			priority4.setText(new Random().nextInt(9 - 1) + 1+ "");
+			priority5.setText(new Random().nextInt(9 - 1) + 1+ "");
+			priority6.setText(new Random().nextInt(9 - 1) + 1+ "");
+			priority7.setText(new Random().nextInt(9 - 1) + 1+ "");
+			priority8.setText(new Random().nextInt(9 - 1) + 1+ "");
+			arrival1.setText(new Random().nextInt(9 - 1) + 1+ "");
+			arrival2.setText(new Random().nextInt(9 - 1) + 1+ "");
+			arrival3.setText(new Random().nextInt(9 - 1) + 1+ "");
+			arrival4.setText(new Random().nextInt(9 - 1) + 1+ "");
+			arrival5.setText(new Random().nextInt(9 - 1) + 1+ "");
+			arrival6.setText(new Random().nextInt(9 - 1) + 1+ "");
+			arrival7.setText(new Random().nextInt(9 - 1) + 1+ "");
+			arrival8.setText(new Random().nextInt(9 - 1) + 1+ "");
 		
 		});
 		//
@@ -1311,6 +1332,9 @@ public class View extends Application {
 		// Visualization of Gantt Chart
 		//
 		HBox ganttChart = new HBox();
+		
+//		Process[] jobQ = this.processBag.getProcesses();
+//		new GanttStringBuilder(processBag).getGanttString()
 		
 		chart1 = new StackPane();
 		Text chart1text = new Text("P1");

@@ -64,10 +64,6 @@ public class Priority {
 		
 	}
 
-	private void sortByBurstTime(List<Process> localProcessesList) {
-		localProcessesList.sort((Process a, Process b) -> a.getBurstTime() - b.getBurstTime());
-
-	}
 
 	private void sortByArrivalTime() {
 		processesList.sort((Process a, Process b) -> a.getArrivalTime() - b.getArrivalTime());

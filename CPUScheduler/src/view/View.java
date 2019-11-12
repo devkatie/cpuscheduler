@@ -110,6 +110,7 @@ public class View extends Application {
 		algoBox.setSpacing(10);
 		algoBox.setAlignment(Pos.TOP_LEFT);
 		algoBox.setPadding(new Insets(10, 10, 10, 10));		
+		
 
 		// combining selections & algocombobox
 		VBox selections = new VBox(titleBox, new Separator(), algoBox, processBox, new Separator());

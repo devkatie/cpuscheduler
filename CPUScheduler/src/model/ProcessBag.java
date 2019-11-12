@@ -55,12 +55,19 @@ public class ProcessBag {
 		super();
 		this.timeframe = timeframe;
 		this.processes = new Process[burstTimes.length];
-		this.arrivalTimes = arrivalTimes;
+		this.arrivalTimes = setArrivalTimesToZero(arrivalTimes);
 		this.burstTimes = burstTimes;
 		createProcesses(burstTimes, arrivalTimes);
 		this.quantum = quantum;
 		this.jobQueue = new RoundRobin(timeframe, processes, quantum).getJobQueue();
 		calculateAverages();
+	}
+
+	private int[] setArrivalTimesToZero(int[] arrivalTimes) {
+		for(int i = 0; i < arrivalTimes.length; i++) {
+			arrivalTimes[i] = 0;
+		}
+		return arrivalTimes;
 	}
 
 	private void createProcesses(int[] burstTimes, int[] arrivalTimes) {

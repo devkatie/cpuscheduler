@@ -501,19 +501,6 @@ public class View extends Application {
 			priorityTextFields[5] = priority6;
 			priorityTextFields[6] = priority7;
 			priorityTextFields[7] = priority8;
-		
-		
-//			System.out.println("HOPE THIS WORKS");
-//			
-//			int[] arrivalTimes = parseArray(arrivalTextFields);
-//			System.out.println("HOPE THIS WORKS");
-//			
-//			int[] priorityLevels = parseArray(priorityTextFields);
-			
-//			System.out.println(arrivalTimes);
-//			System.out.println(priorityLevels);
-
-			
 			
 			int nElems = 0;
 			int algorithm = 0;

@@ -28,7 +28,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.CalculatorAlert;
 import model.GanttSceneBuilder;
 import model.GanttStringBuilder;
 import model.Process;

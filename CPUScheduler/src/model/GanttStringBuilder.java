@@ -30,7 +30,7 @@ public class GanttStringBuilder {
 					+ processBag.getProcessWaitingTime(i + 1) +"       \t\t" + processBag.getProcessTurnaroundTime(i + 1) + "\n";
 		}
 		
-		ganttString += AVERAGES + "\t" + processBag.getAverageWaitingTime() + "\t\t" + processBag.getAverageTurnaroundTime();
+		ganttString += AVERAGES + "\t" + processBag.getAverageWaitingTime() + "\t\t\t" + processBag.getAverageTurnaroundTime();
 		ganttString += GANTT_CHART_HEADER;
 		
 		for(int i = 1; i < jobQueue.length; i++) {

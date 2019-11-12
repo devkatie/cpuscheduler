@@ -827,30 +827,30 @@ public class View extends Application {
 			// ? Random random = new Random();
 			// generate random int between 1 and 100
 			// (int)(Math.random()*((100 - 1) + 1)) + 1
-			burst1.setText(new Random().nextInt(25 + 1) + "");
-			burst2.setText(new Random().nextInt(25 + 1) + "");
-			burst3.setText(new Random().nextInt(25 + 1) + "");
-			burst4.setText(new Random().nextInt(25 + 1) + "");
-			burst5.setText(new Random().nextInt(25 + 1) + "");
-			burst6.setText(new Random().nextInt(25 + 1) + "");
-			burst7.setText(new Random().nextInt(25 + 1) + "");
-			burst8.setText(new Random().nextInt(25 + 1) + "");
-			priority1.setText(new Random().nextInt(9 + 1) + "");
-			priority2.setText(new Random().nextInt(9 + 1) + "");
-			priority3.setText(new Random().nextInt(9 + 1) + "");
-			priority4.setText(new Random().nextInt(9 + 1) + "");
-			priority5.setText(new Random().nextInt(9 + 1) + "");
-			priority6.setText(new Random().nextInt(9 + 1) + "");
-			priority7.setText(new Random().nextInt(9 + 1) + "");
-			priority8.setText(new Random().nextInt(9 + 1) + "");
-			arrival1.setText(new Random().nextInt(9 + 1) + "");
-			arrival2.setText(new Random().nextInt(9 + 1) + "");
-			arrival3.setText(new Random().nextInt(9 + 1) + "");
-			arrival4.setText(new Random().nextInt(9 + 1) + "");
-			arrival5.setText(new Random().nextInt(9 + 1) + "");
-			arrival6.setText(new Random().nextInt(9 + 1) + "");
-			arrival7.setText(new Random().nextInt(9 + 1) + "");
-			arrival8.setText(new Random().nextInt(9 + 1) + "");
+			burst1.setText(new Random().nextInt(25 + 1) + 1 +"");
+			burst2.setText(new Random().nextInt(25 + 1) + 1+ "");
+			burst3.setText(new Random().nextInt(25 + 1) + 1+ "");
+			burst4.setText(new Random().nextInt(25 + 1) + 1+ "");
+			burst5.setText(new Random().nextInt(25 + 1) + 1+ "");
+			burst6.setText(new Random().nextInt(25 + 1) + 1+ "");
+			burst7.setText(new Random().nextInt(25 + 1) + 1+ "");
+			burst8.setText(new Random().nextInt(25 + 1) + 1+ "");
+			priority1.setText(new Random().nextInt(9 + 1) + 1+ "");
+			priority2.setText(new Random().nextInt(9 + 1) + 1+ "");
+			priority3.setText(new Random().nextInt(9 + 1) + 1+ "");
+			priority4.setText(new Random().nextInt(9 + 1) + 1+ "");
+			priority5.setText(new Random().nextInt(9 + 1) + 1+ "");
+			priority6.setText(new Random().nextInt(9 + 1) + 1+ "");
+			priority7.setText(new Random().nextInt(9 + 1) + 1+ "");
+			priority8.setText(new Random().nextInt(9 + 1) + 1+ "");
+			arrival1.setText(new Random().nextInt(9 + 1) + 1+ "");
+			arrival2.setText(new Random().nextInt(9 + 1) + 1+ "");
+			arrival3.setText(new Random().nextInt(9 + 1) + 1+ "");
+			arrival4.setText(new Random().nextInt(9 + 1) + 1+ "");
+			arrival5.setText(new Random().nextInt(9 + 1) + 1+ "");
+			arrival6.setText(new Random().nextInt(9 + 1) + 1+ "");
+			arrival7.setText(new Random().nextInt(9 + 1) + 1+ "");
+			arrival8.setText(new Random().nextInt(9 + 1) + 1+ "");
 		
 		});
 		//

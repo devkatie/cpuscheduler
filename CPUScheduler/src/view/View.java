@@ -480,6 +480,9 @@ public class View extends Application {
 		// to determine witch algorithm to use. then, based off
 		// of the input values for each field, calculations will be done
 		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Gantt Chart");
+		alert.setHeaderText("Results:");
+		alert.setResizable(true);
 		calculate.setOnAction(e -> {
 			TextField[] burstTextFields = new TextField[8];
 			TextField[] arrivalTextFields = new TextField[8];
@@ -853,6 +856,7 @@ public class View extends Application {
 			*/
 			alert.setContentText(gantt);
 			alert.show();
+			
 			
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
 			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));

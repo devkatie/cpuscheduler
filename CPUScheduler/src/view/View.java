@@ -156,7 +156,7 @@ public class View extends Application {
 		burst1.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\.]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,2}([\\.]\\d{0,4})?")) {
                     burst1.setText(oldValue);
                 }
             }
@@ -197,7 +197,7 @@ public class View extends Application {
 		burst2.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\.]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,2}([\\.]\\d{0,4})?")) {
                     burst2.setText(oldValue);
                 }
             }
@@ -238,7 +238,7 @@ public class View extends Application {
 		burst3.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\.]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,2}([\\.]\\d{0,4})?")) {
                     burst3.setText(oldValue);
                 }
             }
@@ -279,7 +279,7 @@ public class View extends Application {
 		burst4.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\.]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,2}([\\.]\\d{0,4})?")) {
                     burst4.setText(oldValue);
                 }
             }
@@ -320,7 +320,7 @@ public class View extends Application {
 		burst5.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\.]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,2}([\\.]\\d{0,4})?")) {
                     burst5.setText(oldValue);
                 }
             }
@@ -361,7 +361,7 @@ public class View extends Application {
 		burst6.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\.]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,2}([\\.]\\d{0,4})?")) {
                     burst6.setText(oldValue);
                 }
             }
@@ -402,7 +402,7 @@ public class View extends Application {
 		burst7.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\.]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,2}([\\.]\\d{0,4})?")) {
                     burst7.setText(oldValue);
                 }
             }
@@ -442,7 +442,7 @@ public class View extends Application {
 		burst8.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\.]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,2}([\\.]\\d{0,4})?")) {
                     burst8.setText(oldValue);
                 }
             }

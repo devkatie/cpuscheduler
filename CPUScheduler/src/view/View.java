@@ -515,6 +515,7 @@ public class View extends Application {
 			int nElems = 0;
 			int algorithm = 0;
 			
+			
 			switch(algoCombos.getValue()) {
 			case "PRI: Priority":
 				algorithm = 3;

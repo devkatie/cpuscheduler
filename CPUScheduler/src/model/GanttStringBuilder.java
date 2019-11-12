@@ -10,6 +10,7 @@ public class GanttStringBuilder {
 	private final String ARROW = " -> ";
 	private final String HEADER = "Process\t\tWait Time\tTurnAroundTime\n---------------------------------------------\n";
 	private final String GANTT_CHART_HEADER = "\n\nGantt Chart\n-------------\n";
+	private final String ROUND_ROBIN_ERROR = "Unfortunately, Round Robin does not support dynamic arrival times.\nAll arrival times are set to zero.\n\n";
 
 	public GanttStringBuilder(ProcessBag processBag) {
 		super();
@@ -24,7 +25,13 @@ public class GanttStringBuilder {
 	}
 
 	private void buildGanttString() {
-		ganttString = HEADER;
+		ganttString = "";
+		
+		if(processBag.isRoundRobin()) {
+			ganttString += ROUND_ROBIN_ERROR;
+		}
+		
+		ganttString += HEADER;
 		for (int i = 0; i < nElems; i++) {
 			ganttString += "P" + processBag.getProcesses()[i].getProcessNumber() + "\t\t\t"
 					+ processBag.getProcessWaitingTime(i + 1) +"       \t\t" + processBag.getProcessTurnaroundTime(i + 1) + "\n";

@@ -10,6 +10,7 @@ public class ProcessBag {
 	private int[]burstTimes;
 	private int quantum;
 	private int[] jobQueue;
+	private boolean isRoundRobin;
 
 	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes) {
 		super();
@@ -20,6 +21,7 @@ public class ProcessBag {
 		createProcesses(burstTimes, arrivalTimes);
 		this.jobQueue = new FirstComeFirstServe(this.timeframe, this.processes).getJobQueue();
 		calculateAverages();
+		this.isRoundRobin = false;
 	}
 
 	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes, boolean isSJF) {
@@ -35,6 +37,7 @@ public class ProcessBag {
 			this.jobQueue = new ShortestRemainingTimeFirst(timeframe, processes).getJobQueue();
 		}
 		calculateAverages();
+		this.isRoundRobin = false;
 
 	}
 
@@ -48,6 +51,7 @@ public class ProcessBag {
 		addPriorityLevels(priorityLevels);
 		this.jobQueue = new Priority(timeframe, processes).getJobQueue();
 		calculateAverages();
+		this.isRoundRobin = false;
 
 	}
 
@@ -61,6 +65,7 @@ public class ProcessBag {
 		this.quantum = quantum;
 		this.jobQueue = new RoundRobin(timeframe, processes, quantum).getJobQueue();
 		calculateAverages();
+		this.isRoundRobin = true;
 	}
 
 	private int[] setArrivalTimesToZero(int[] arrivalTimes) {
@@ -99,8 +104,8 @@ public class ProcessBag {
 		if (total == 0) {
 			total = 1;
 		}
-		this.averageWaitingTime = waitingTimeSum / total;
-		this.averageTurnaroundTime = turnaroundTimeSum / total;
+		this.averageWaitingTime = (Math.round(waitingTimeSum / total) * 10) /10.0;
+		this.averageTurnaroundTime = (Math.round(turnaroundTimeSum / total)* 10) / 10.0;
 
 	}
 	
@@ -184,6 +189,8 @@ public class ProcessBag {
 		this.averageTurnaroundTime = averageTurnaroundTime;
 	}
 	
-	
+	public boolean isRoundRobin() {
+		return isRoundRobin;
+	}
 
 }

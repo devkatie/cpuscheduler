@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Toolkit;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -45,6 +46,7 @@ public class View extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+		
 	}
 
 	@Override
@@ -863,7 +865,7 @@ public class View extends Application {
 //			alert.show();
 //************************************************
 			
-<<<<<<< HEAD
+//<<<<<<< HEAD
 			String ganttString = new GanttStringBuilder(processBag).getGanttString();
 //			testing out that this implementation ( ^ ) works
 //			System.out.println(ganttString); 
@@ -896,9 +898,9 @@ public class View extends Application {
 			alert.show();
 			
 			
-=======
-			new GanttSceneBuilder(processBag).showGanttScene();
->>>>>>> branch 'master' of https://github.com/dfayaud/cpuscheduler.git
+//=======
+//			new GanttSceneBuilder(processBag).showGanttScene();
+//>>>>>>> branch 'master' of https://github.com/dfayaud/cpuscheduler.git
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
 			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));
 			

@@ -92,7 +92,7 @@ public class ProcessBag {
 	}
 	
 	public int getProcessTurnaroundTime(int processNumber) {
-		return this.processes[processNumber - 1].getWaitingTime();
+		return this.processes[processNumber - 1].getTurnaroundTime();
 	}
 
 	public Process[] getProcesses() {

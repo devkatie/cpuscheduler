@@ -3,6 +3,8 @@ package view;
 import java.util.Arrays;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import javafx.*;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -11,6 +13,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -37,6 +41,7 @@ public class View extends Application {
 
 	Scene PRIMARY_SCENE;
 	private ProcessBag processBag;
+	StackPane chart1 = new StackPane();
 
 	public static void main(String[] args) {
 		launch(args);
@@ -474,6 +479,7 @@ public class View extends Application {
 		// the user, the calculate button will use switch cases
 		// to determine witch algorithm to use. then, based off
 		// of the input values for each field, calculations will be done
+		Alert alert = new Alert(AlertType.INFORMATION);
 		calculate.setOnAction(e -> {
 			TextField[] burstTextFields = new TextField[8];
 			TextField[] arrivalTextFields = new TextField[8];
@@ -828,21 +834,30 @@ public class View extends Application {
 					num++;
 				}
 			}
+			String gantt = "";
 			for (int i = 0; i < ganttChartArray.length; i++) {
 				if(ganttChartArray[i] != null) {
-					System.out.print(ganttChartArray[i] + " ");
+					if (gantt.equals("")) {
+						gantt += ganttChartArray[i];
+					} else {
+						gantt += " -> " + ganttChartArray[i];
+					}
 				}
 			}
-			
-			
-//			new GanttSceneBuilder(processBag).showGanttScene();
+			/*
+			the following 2 lines will be
+			displaying the gantt chart in an alert box
+			this will do for now since I'm not sure how to
+			dynamically display stack panes :( - Katie
+			*/
+			alert.setContentText(gantt);
+			alert.show();
 			
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
 			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));
 			
 			
 		});
-		
 		//
 		// generates random burst times
 		randomBurstButton.setOnAction(e -> {
@@ -1319,94 +1334,11 @@ public class View extends Application {
 		processDisplayBox.getChildren().addAll(displayTitles, process1, process2, process3,
 				process4, process5, process6, process7, process8, new Separator());
 		
-		Text ganttTitle = new Text("Gantt Chart");
-		ganttTitle.setFont(Font.font("Tahoma", 32));
-		HBox ganttHBox = new HBox();
-		ganttHBox.getChildren().add(ganttTitle);
-		ganttHBox.setAlignment(Pos.CENTER);
-		
-		//
-		//
-		// Visualization of Gantt Chart
-		//
-		HBox ganttChart = new HBox();
-		
-//		Process[] jobQ = this.processBag.getProcesses();
-//		new GanttStringBuilder(processBag).getGanttString()
-		
-		chart1 = new StackPane();
-		Text chart1text = new Text("P1");
-		chart1text.setFill(Color.LIGHTSLATEGRAY);
-		Rectangle slot1 = new Rectangle(50, 50);
-		slot1.setStroke(Color.DARKRED);
-		slot1.setStrokeWidth(3);
-		chart1.getChildren().addAll(slot1, chart1text);
-
-		chart2 = new StackPane();
-		Text chart2text = new Text("P2");
-		chart2text.setFill(Color.LIGHTSLATEGRAY);
-		Rectangle slot2 = new Rectangle(50, 50);
-		slot2.setStroke(Color.DARKORANGE);
-		slot2.setStrokeWidth(3);
-		chart2.getChildren().addAll(slot2, chart2text);
-		
-		chart3 = new StackPane();
-		Text chart3text = new Text("P3");
-		chart3text.setFill(Color.LIGHTSLATEGRAY);
-		Rectangle slot3 = new Rectangle(50, 50);
-		slot3.setStroke(Color.YELLOW);
-		slot3.setStrokeWidth(3);
-		chart3.getChildren().addAll(slot3, chart3text);
-		
-		chart4 = new StackPane();
-		Text chart4text = new Text("P4");
-		chart4text.setFill(Color.LIGHTSLATEGRAY);
-		Rectangle slot4 = new Rectangle(50, 50);
-		slot4.setStroke(Color.LAWNGREEN);
-		slot4.setStrokeWidth(3);
-		chart4.getChildren().addAll(slot4, chart4text);
-		
-		chart5 = new StackPane();
-		Text chart5text = new Text("P5");
-		chart5text.setFill(Color.LIGHTSLATEGRAY);
-		Rectangle slot5 = new Rectangle(50, 50);
-		slot5.setStroke(Color.ROYALBLUE);
-		slot5.setStrokeWidth(3);
-		chart5.getChildren().addAll(slot5, chart5text);
-		
-		chart6 = new StackPane();
-		Text chart6text = new Text("P6");
-		chart6text.setFill(Color.LIGHTSLATEGRAY);
-		Rectangle slot6 = new Rectangle(50, 50);
-		slot6.setStroke(Color.SLATEBLUE);
-		slot6.setStrokeWidth(3);
-		chart6.getChildren().addAll(slot6, chart6text);
-		
-		chart7 = new StackPane();
-		Text chart7text = new Text("P7");
-		chart7text.setFill(Color.LIGHTSLATEGRAY);
-		Rectangle slot7 = new Rectangle(50, 50);
-		slot7.setStroke(Color.BLUEVIOLET);
-		slot7.setStrokeWidth(3);
-		chart7.getChildren().addAll(slot7, chart7text);
-		
-		chart8 = new StackPane();
-		Text chart8text = new Text("P8");
-		chart8text.setFill(Color.LIGHTSLATEGRAY);
-		Rectangle slot8 = new Rectangle(50, 50);
-		slot8.setStroke(Color.MEDIUMVIOLETRED);
-		slot8.setStrokeWidth(3);
-		chart8.getChildren().addAll(slot8, chart8text);
-		
-		ganttChart.getChildren().addAll(chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8);
-		ganttChart.setSpacing(3);
-		ganttChart.setAlignment(Pos.CENTER);
-		
 		VBox mainVBox = new VBox();
-		mainVBox.getChildren().addAll(selections, processDisplayBox, averageBox, new Separator(), ganttHBox, ganttChart);
+		mainVBox.getChildren().addAll(selections, processDisplayBox, averageBox, new Separator());
 		
 		// finalization
-		PRIMARY_SCENE = new Scene(mainVBox, 800, 700);
+		PRIMARY_SCENE = new Scene(mainVBox, 700, 600);
 		primaryStage.setScene(PRIMARY_SCENE);
 		primaryStage.show();
 	}

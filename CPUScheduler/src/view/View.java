@@ -827,38 +827,40 @@ public class View extends Application {
 				break;
 			
 			}
+//****************************************			
+//			String ganttString = new GanttStringBuilder(processBag).getGanttString();
+////			testing out that this implementation ( ^ ) works
+////			System.out.println(ganttString); 
+//			String[] ganttArray = ganttString.split(" -> ");
+//			String[] ganttChartArray = new String[200];
+//			int num = 0;
+//			for(int i = 0; i < ganttArray.length; i++) {
+//				if(!(ganttArray[i].equals("IDLE"))) {
+//					ganttChartArray[num] = ganttArray[i];
+//					num++;
+//				}
+//			}
+//			String gantt = "";
+//			for (int i = 0; i < ganttChartArray.length; i++) {
+//				if(ganttChartArray[i] != null) {
+//					if (gantt.equals("")) {
+//						gantt += ganttChartArray[i];
+//					} else {
+//						gantt += " -> " + ganttChartArray[i];
+//					}
+//				}
+//			}
+//			/*
+//			the following 2 lines will be
+//			displaying the gantt chart in an alert box
+//			this will do for now since I'm not sure how to
+//			dynamically display stack panes :( - Katie
+//			*/
+//			alert.setContentText(gantt);
+//			alert.show();
+//************************************************
 			
-			String ganttString = new GanttStringBuilder(processBag).getGanttString();
-//			testing out that this implementation ( ^ ) works
-//			System.out.println(ganttString); 
-			String[] ganttArray = ganttString.split(" -> ");
-			String[] ganttChartArray = new String[200];
-			int num = 0;
-			for(int i = 0; i < ganttArray.length; i++) {
-				if(!(ganttArray[i].equals("IDLE"))) {
-					ganttChartArray[num] = ganttArray[i];
-					num++;
-				}
-			}
-			String gantt = "";
-			for (int i = 0; i < ganttChartArray.length; i++) {
-				if(ganttChartArray[i] != null) {
-					if (gantt.equals("")) {
-						gantt += ganttChartArray[i];
-					} else {
-						gantt += " -> " + ganttChartArray[i];
-					}
-				}
-			}
-			/*
-			the following 2 lines will be
-			displaying the gantt chart in an alert box
-			this will do for now since I'm not sure how to
-			dynamically display stack panes :( - Katie
-			*/
-			alert.setContentText(gantt);
-			alert.show();
-			
+			new GanttSceneBuilder(processBag).showGanttScene();
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
 			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));
 			

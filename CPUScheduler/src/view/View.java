@@ -104,7 +104,12 @@ public class View extends Application {
 		processBox.setAlignment(Pos.TOP_LEFT);
 		processBox.setPadding(new Insets(10, 10, 10, 10));
 		
-		// setting up algorithm combobox & its features
+		TextField quantumField = new TextField();
+		quantumField.setPromptText("Quantum");
+		quantumField.setMaxWidth(100);
+		quantumField.setVisible(false);
+		
+		// setting up algorithm combobox & its features***************************************************
 		Label algoLabel = new Label("Algorithm to Test: ");
 		ComboBox<String> algoCombos = new ComboBox<String>();
 		algoCombos.setPromptText("--Select--");
@@ -113,12 +118,12 @@ public class View extends Application {
 		algoCombos.getItems().add("SJF: Shortest Job First");
 		algoCombos.getItems().add("FCFS: First Come First Serve");
 		algoCombos.getItems().add("SRTF: Shortest Remaining Time First");
-		HBox algoBox = new HBox(algoLabel, algoCombos);
+		HBox algoBox = new HBox(algoLabel, algoCombos, quantumField);
 		algoBox.setSpacing(10);
 		algoBox.setAlignment(Pos.TOP_LEFT);
 		algoBox.setPadding(new Insets(10, 10, 10, 10));		
-		
 
+		
 		// combining selections & algocombobox
 		VBox selections = new VBox(titleBox, new Separator(), algoBox, processBox, new Separator());
 		selections.setAlignment(Pos.TOP_LEFT);
@@ -817,7 +822,7 @@ public class View extends Application {
 //				System.out.println("PRIORITY");
 				break;
 			case 4:
-				int quantum = 5;
+				int quantum = Integer.parseInt(quantumField.getText());
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, quantum);
@@ -825,7 +830,40 @@ public class View extends Application {
 				break;
 			
 			}
+//****************************************			
+//			String ganttString = new GanttStringBuilder(processBag).getGanttString();
+////			testing out that this implementation ( ^ ) works
+////			System.out.println(ganttString); 
+//			String[] ganttArray = ganttString.split(" -> ");
+//			String[] ganttChartArray = new String[200];
+//			int num = 0;
+//			for(int i = 0; i < ganttArray.length; i++) {
+//				if(!(ganttArray[i].equals("IDLE"))) {
+//					ganttChartArray[num] = ganttArray[i];
+//					num++;
+//				}
+//			}
+//			String gantt = "";
+//			for (int i = 0; i < ganttChartArray.length; i++) {
+//				if(ganttChartArray[i] != null) {
+//					if (gantt.equals("")) {
+//						gantt += ganttChartArray[i];
+//					} else {
+//						gantt += " -> " + ganttChartArray[i];
+//					}
+//				}
+//			}
+//			/*
+//			the following 2 lines will be
+//			displaying the gantt chart in an alert box
+//			this will do for now since I'm not sure how to
+//			dynamically display stack panes :( - Katie
+//			*/
+//			alert.setContentText(gantt);
+//			alert.show();
+//************************************************
 			
+<<<<<<< HEAD
 			String ganttString = new GanttStringBuilder(processBag).getGanttString();
 //			testing out that this implementation ( ^ ) works
 //			System.out.println(ganttString); 
@@ -858,6 +896,9 @@ public class View extends Application {
 			alert.show();
 			
 			
+=======
+			new GanttSceneBuilder(processBag).showGanttScene();
+>>>>>>> branch 'master' of https://github.com/dfayaud/cpuscheduler.git
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
 			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));
 			
@@ -906,6 +947,7 @@ public class View extends Application {
 		algoCombos.setOnAction(e -> {
 			switch(algoCombos.getValue()) {
 			case "SRTF: Shortest Remaining Time First":
+				quantumField.setVisible(false);
 				priorityLabel.setVisible(false);
 				priority1.setVisible(false);
 				burst1.clear();
@@ -941,6 +983,7 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "FCFS: First Come First Serve":
+				quantumField.setVisible(false);
 				priorityLabel.setVisible(false);
 				priority1.setVisible(false);
 				burst1.clear();
@@ -976,6 +1019,7 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "SJF: Shortest Job First":
+				quantumField.setVisible(false);
 				priorityLabel.setVisible(false);
 				priority1.setVisible(false);
 				burst1.clear();
@@ -1011,6 +1055,7 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "PRI: Priority":
+				quantumField.setVisible(false);
 				priorityLabel.setVisible(true);
 				priority1.setVisible(true);
 				burst1.clear();
@@ -1046,6 +1091,7 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "RR: Round Robin":
+				quantumField.setVisible(true);
 				priorityLabel.setVisible(false);
 				priority1.setVisible(false);
 				burst1.clear();

@@ -12,6 +12,8 @@ For the purposes of this project, the job queue is limited to eight processes.  
 Processes that won't finish in the time frame can still be added, but their waiting and turnaround times will be set to zero.  These values 
 will not be used when calculating average waiting and turnaround times.
 
+Priority Levels are from 1-9, with 9 being the highest priority.
+
 Round Robin is the only algorithm that does not support dynamic arrival times.  
 
 The model package was written by Danny Fayaud.

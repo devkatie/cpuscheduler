@@ -6,6 +6,8 @@ package model;
 public class ProcessBag {
 
 	private Process[] processes;
+	
+//timeframe is a leftover from when we considered dynamic timeframes for the process execution.  As it stands, all timeframes are set to 200 units.  
 	private int timeframe;
 	private double averageWaitingTime;
 	private double averageTurnaroundTime;

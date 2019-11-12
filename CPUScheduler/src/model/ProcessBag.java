@@ -1,5 +1,8 @@
 package model;
 
+// Written by: Danny Fayaud
+// The ProcessBag is the class that is passed to View. It contains all of the necessary data for displaying algorithm output.
+
 public class ProcessBag {
 
 	private Process[] processes;
@@ -11,7 +14,11 @@ public class ProcessBag {
 	private int quantum;
 	private int[] jobQueue;
 	private boolean isRoundRobin;
+	
+// Constructors utilize polymorphism and will calculate algorithms based on what elements are passed upon declaration.  
 
+	
+// FirstComeFirstServe Constructor	
 	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes) {
 		super();
 		this.timeframe = timeframe;
@@ -24,6 +31,7 @@ public class ProcessBag {
 		this.isRoundRobin = false;
 	}
 
+// Shortest Jobs Constructor is shared by SJF and SRTF.  True = SJF, false = SRTF	
 	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes, boolean isSJF) {
 		super();
 		this.timeframe = timeframe;
@@ -40,7 +48,8 @@ public class ProcessBag {
 		this.isRoundRobin = false;
 
 	}
-
+	
+//Priority Constructor
 	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes, int[] priorityLevels) {
 		super();
 		this.timeframe = timeframe;
@@ -55,6 +64,7 @@ public class ProcessBag {
 
 	}
 
+//RoundRobin Constructor	
 	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes, int quantum) {
 		super();
 		this.timeframe = timeframe;
@@ -68,6 +78,8 @@ public class ProcessBag {
 		this.isRoundRobin = true;
 	}
 
+	
+// RoundRobin fails when supplied with arrivalTimes other than zero.  This method sets times to zero.  	
 	private int[] setArrivalTimesToZero(int[] arrivalTimes) {
 		for(int i = 0; i < arrivalTimes.length; i++) {
 			arrivalTimes[i] = 0;
@@ -75,6 +87,8 @@ public class ProcessBag {
 		return arrivalTimes;
 	}
 
+	
+//Process creation based on supplied arrays	
 	private void createProcesses(int[] burstTimes, int[] arrivalTimes) {
 		for (int i = 0; i < burstTimes.length; i++) {
 			this.processes[i] = new Process(burstTimes[i], arrivalTimes[i]);
@@ -83,6 +97,7 @@ public class ProcessBag {
 
 	}
 
+//Priority Levels added for Priority algorithm	
 	private void addPriorityLevels(int[] priorityLevels) {
 		for (int i = 0; i < priorityLevels.length; i++) {
 			this.processes[i].setPriorityLevel(10 - priorityLevels[i]);
@@ -90,6 +105,7 @@ public class ProcessBag {
 
 	}
 
+//Calculates averages and stores resulting double rounded to one decimal place	
 	private void calculateAverages() {
 		int waitingTimeSum = 0;
 		int turnaroundTimeSum = 0;

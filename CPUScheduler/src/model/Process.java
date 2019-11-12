@@ -1,5 +1,10 @@
 package model;
 
+// Written by: Danny Fayaud
+// The Process class is the basic unit upon which the rest of the project is built.  
+// Unique elements include a deep copy constructor for copying Processes without altering master copies.
+
+
 public class Process {
 
 	private int burstTime;
@@ -15,7 +20,7 @@ public class Process {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public Process(Process process) {
+	public Process(Process process) {  //Deep copy constructor
 		super();
 		this.processNumber = process.getProcessNumber();
 		this.arrivalTime = process.getArrivalTime();
@@ -78,11 +83,5 @@ public class Process {
 		this.processNumber = processNumber;
 	}
 
-	@Override
-	public String toString() {
-		return "Process [burstTime=" + burstTime + ", arrivalTime=" + arrivalTime + ", priorityLevel=" + priorityLevel
-				+ ", waitingTime=" + waitingTime + ", turnaroundTime=" + turnaroundTime + ", processNumber="
-				+ processNumber + "]";
-	}
 	
 }

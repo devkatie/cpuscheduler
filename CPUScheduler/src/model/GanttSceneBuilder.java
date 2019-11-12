@@ -1,5 +1,9 @@
 package model;
 
+/* written by: Danny Fayaud
+ * A simple pop up Stage for displaying GanttStrings.
+ */
+
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;

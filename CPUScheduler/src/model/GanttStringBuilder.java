@@ -1,5 +1,10 @@
 package model;
 
+/* written by: Danny Fayaud
+GanttStringBuilder is a backup plan in case data cannot be displayed in the main project Stage.  It produces a single String that can be 
+plugged into any text area with all the necessary data formatted and a text-based Gantt chart.  
+*/
+
 public class GanttStringBuilder {
 
 	private ProcessBag processBag;
@@ -25,12 +30,16 @@ public class GanttStringBuilder {
 	}
 
 	private void buildGanttString() {
+		
+//initialize String
 		ganttString = "";
 		
+//Break the bad news about Round Robin if selected
 		if(processBag.isRoundRobin()) {
 			ganttString += ROUND_ROBIN_ERROR;
 		}
 		
+//adds each processes waiting and arrival times to the String
 		ganttString += HEADER;
 		for (int i = 0; i < nElems; i++) {
 			ganttString += "P" + processBag.getProcesses()[i].getProcessNumber() + "\t\t\t"
@@ -38,6 +47,9 @@ public class GanttStringBuilder {
 		}
 		
 		ganttString += AVERAGES + "\t" + processBag.getAverageWaitingTime() + "\t\t\t" + processBag.getAverageTurnaroundTime();
+		
+		
+//builds the GanttChart by tracking changes in jobQueue values
 		ganttString += GANTT_CHART_HEADER;
 		
 		for(int i = 1; i < jobQueue.length; i++) {

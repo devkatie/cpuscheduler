@@ -1,5 +1,12 @@
 package model;
 
+//Written by: Danny Fayaud
+/* All model sorting algorithms utilize the same basic structure.  First, an ArrayList is constructed with deep copies of the
+Process array for easy sorting and burstTime decrementing without altering the "good" copies.  The product of each algorithm
+is the jobQueue array: a large array with each element mapped to a single time unit that represents the entirety of the CPU
+operation cycle. fillJobQueue() contains a unique algorithm for each class.    
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,24 +27,38 @@ public class Priority {
 		int timer = 0;
 		int index = 0;
 		this.jobQueue = new int[timeframe];
+		
+//A second arrayList is formed and Processes in the sorted first ArrayList are added when timer = arrivaltime()
 		List<Process> localProcessesList = new ArrayList<Process>();
 		sortByArrivalTime();
+
+//while loop runs until the jobQueue is full		
 		while (timer != jobQueue.length && index < processes.length) {
+			
 			if (localProcessesList.isEmpty()) {
 				localProcessesList.add(processesList.get(index));
 			}
+			
+//adds processes to localList when time is right
 			for (int i = 0; i < processes.length; i++) {
 				if (timer >= processesList.get(i).getArrivalTime()
 						&& !localProcessesList.contains(processesList.get(i))) {
 					localProcessesList.add(processesList.get(i));
 				}
 				if(index == 0 && !localProcessesList.isEmpty()) {
+					
+// The only major difference between Priority and the other algo's is the sortByPriority method
 					sortByPriority(localProcessesList);
 				}
 			}
+			
+//Fills jobQueue with 0 (IDLE) until timer hits a Process Arrival time	
 			if (index >= localProcessesList.size() || localProcessesList.get(index).getArrivalTime() > timer) {
 				jobQueue[timer] = 0;
 				timer++;
+				
+//Should a Process finish (Burst time decremented to 0) arrival and burst times are recorded and we move to the next
+//element in the Array List.  Times are referenced by the ArrayList, but stored in the Process array.
 			} else if (localProcessesList.get(index).getBurstTime() == 0) {
 				localProcessesList.get(index).setPriorityLevel(-1);
 				processes[localProcessesList.get(index).getProcessNumber() - 1].setWaitingTime(
@@ -50,6 +71,7 @@ public class Priority {
 				sortByPriority(localProcessesList);
 			} else {
 
+//jobQueue is assigned process number until burstTime is depleted.
 				this.jobQueue[timer] = localProcessesList.get(index).getProcessNumber();
 				localProcessesList.get(index).setBurstTime(localProcessesList.get(index).getBurstTime() - 1);
 
@@ -59,6 +81,7 @@ public class Priority {
 
 	}
 
+//lambda expressions for sorting ArrayLists
 	private void sortByPriority(List<Process> localProcessesList) {
 		localProcessesList.sort((Process a, Process b) -> a.getPriorityLevel() - b.getPriorityLevel());
 		
@@ -74,6 +97,7 @@ public class Priority {
 		return jobQueue;
 	}
 
+//Creates a deep copy ArrayList of the original Process array.
 	public void createProcessList() {
 		this.processesList = new ArrayList<Process>();
 		for (int i = 0; i < processes.length; i++) {

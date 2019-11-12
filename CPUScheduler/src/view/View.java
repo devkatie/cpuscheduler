@@ -104,7 +104,12 @@ public class View extends Application {
 		processBox.setAlignment(Pos.TOP_LEFT);
 		processBox.setPadding(new Insets(10, 10, 10, 10));
 		
-		// setting up algorithm combobox & its features
+		TextField quantumField = new TextField();
+		quantumField.setPromptText("Quantum");
+		quantumField.setMaxWidth(100);
+		quantumField.setVisible(false);
+		
+		// setting up algorithm combobox & its features***************************************************
 		Label algoLabel = new Label("Algorithm to Test: ");
 		ComboBox<String> algoCombos = new ComboBox<String>();
 		algoCombos.setPromptText("--Select--");
@@ -113,12 +118,12 @@ public class View extends Application {
 		algoCombos.getItems().add("SJF: Shortest Job First");
 		algoCombos.getItems().add("FCFS: First Come First Serve");
 		algoCombos.getItems().add("SRTF: Shortest Remaining Time First");
-		HBox algoBox = new HBox(algoLabel, algoCombos);
+		HBox algoBox = new HBox(algoLabel, algoCombos, quantumField);
 		algoBox.setSpacing(10);
 		algoBox.setAlignment(Pos.TOP_LEFT);
 		algoBox.setPadding(new Insets(10, 10, 10, 10));		
-		
 
+		
 		// combining selections & algocombobox
 		VBox selections = new VBox(titleBox, new Separator(), algoBox, processBox, new Separator());
 		selections.setAlignment(Pos.TOP_LEFT);
@@ -814,7 +819,7 @@ public class View extends Application {
 //				System.out.println("PRIORITY");
 				break;
 			case 4:
-				int quantum = 5;
+				int quantum = Integer.parseInt(quantumField.getText());
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, quantum);
@@ -902,6 +907,7 @@ public class View extends Application {
 		algoCombos.setOnAction(e -> {
 			switch(algoCombos.getValue()) {
 			case "SRTF: Shortest Remaining Time First":
+				quantumField.setVisible(false);
 				priorityLabel.setVisible(false);
 				priority1.setVisible(false);
 				burst1.clear();
@@ -937,6 +943,7 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "FCFS: First Come First Serve":
+				quantumField.setVisible(false);
 				priorityLabel.setVisible(false);
 				priority1.setVisible(false);
 				burst1.clear();
@@ -972,6 +979,7 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "SJF: Shortest Job First":
+				quantumField.setVisible(false);
 				priorityLabel.setVisible(false);
 				priority1.setVisible(false);
 				burst1.clear();
@@ -1007,6 +1015,7 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "PRI: Priority":
+				quantumField.setVisible(false);
 				priorityLabel.setVisible(true);
 				priority1.setVisible(true);
 				burst1.clear();
@@ -1042,6 +1051,7 @@ public class View extends Application {
 				priority8.clear();
 				break;
 			case "RR: Round Robin":
+				quantumField.setVisible(true);
 				priorityLabel.setVisible(false);
 				priority1.setVisible(false);
 				burst1.clear();

@@ -36,7 +36,7 @@ public class Priority {
 				}
 			}
 			if (index >= localProcessesList.size() || localProcessesList.get(index).getArrivalTime() > timer) {
-				jobQueue[timer] = 99;
+				jobQueue[timer] = 0;
 				timer++;
 			} else if (localProcessesList.get(index).getBurstTime() == 0) {
 				localProcessesList.get(index).setPriorityLevel(-1);

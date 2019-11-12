@@ -26,11 +26,11 @@ public class GanttStringBuilder {
 	private void buildGanttString() {
 		ganttString = HEADER;
 		for (int i = 0; i < nElems; i++) {
-			ganttString += "P" + processBag.getProcesses()[i].getProcessNumber() + "\t\t"
-					+ processBag.getProcessWaitingTime(i + 1) +"       \t" + processBag.getProcessTurnaroundTime(i + 1) + "\n";
+			ganttString += "P" + processBag.getProcesses()[i].getProcessNumber() + "\t\t\t"
+					+ processBag.getProcessWaitingTime(i + 1) +"       \t\t" + processBag.getProcessTurnaroundTime(i + 1) + "\n";
 		}
 		
-		ganttString += AVERAGES + processBag.getAverageWaitingTime() + "\t\t" + processBag.getAverageTurnaroundTime();
+		ganttString += AVERAGES + "\t" + processBag.getAverageWaitingTime() + "\t\t" + processBag.getAverageTurnaroundTime();
 		ganttString += GANTT_CHART_HEADER;
 		
 		for(int i = 1; i < jobQueue.length; i++) {

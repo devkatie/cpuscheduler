@@ -26,7 +26,7 @@ public class FirstComeFirstServe {
 		sortByArrivalTime();
 		while (timer != jobQueue.length && index < processes.length) {
 			if (processesList.get(index).getArrivalTime() > timer) {
-				jobQueue[timer] = 99;
+				jobQueue[timer] = 0;
 				timer++;
 			} else if (processesList.get(index).getBurstTime() == 0) {
 

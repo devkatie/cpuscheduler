@@ -28,6 +28,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.GanttSceneBuilder;
 import model.ProcessBag;
 
 public class View extends Application {
@@ -613,7 +614,7 @@ public class View extends Application {
 				}
 				break;
 			case "SJF: Shortest Job First":
-				algorithm = 2;
+				algorithm = 1;
 				switch(processCombos.getValue()) {
 				case "1 Process":
 					// SJF for 1 process
@@ -719,7 +720,7 @@ public class View extends Application {
 				}
 				break;
 			case "SRTF: Shortest Remaining Time First":
-				algorithm = 1;
+				algorithm = 2;
 				switch(processCombos.getValue()) {
 				case "1 Process":
 					// SRTF for 1 process
@@ -801,6 +802,8 @@ public class View extends Application {
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, quantum);
 			
 			}
+			new GanttSceneBuilder(processBag).showGanttScene();
+			
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
 			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));
 			

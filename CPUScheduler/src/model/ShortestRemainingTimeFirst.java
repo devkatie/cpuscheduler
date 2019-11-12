@@ -39,7 +39,7 @@ public class ShortestRemainingTimeFirst {
 				sortByBurstTime(localProcessesList);
 			}
 			if (index >= localProcessesList.size() || localProcessesList.get(index).getArrivalTime() > timer) {
-				jobQueue[timer] = 99;
+				jobQueue[timer] = 0;
 				timer++;
 			} else if (localProcessesList.get(index).getBurstTime() == 0) {
 				processes[localProcessesList.get(index).getProcessNumber() - 1].setWaitingTime(

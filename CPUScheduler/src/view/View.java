@@ -781,27 +781,38 @@ public class View extends Application {
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes);
+//				System.out.println("FCFS");
 				break;
 			case 1:
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, true);
+//				System.out.println("SJF");
+				break;
 			case 2:
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, false);
+//				System.out.println("SRTF");
+				break;
 			case 3:
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				priorityLevels = parseArray(priorityTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, priorityLevels);
+//				System.out.println("PRIORITY");
+				break;
 			case 4:
 				int quantum = 5;
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, quantum);
+//				System.out.println("RR");
+				break;
 			
 			}
+			
+			
 			new GanttSceneBuilder(processBag).showGanttScene();
 			
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));

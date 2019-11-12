@@ -6,12 +6,16 @@ public class ProcessBag {
 	private int timeframe;
 	private double averageWaitingTime;
 	private double averageTurnaroundTime;
+	private int[]arrivalTimes;
+	private int[]burstTimes;
 	private int quantum;
 	private int[] jobQueue;
 
 	public ProcessBag(int timeframe, int[] burstTimes, int[] arrivalTimes) {
 		super();
 		this.timeframe = timeframe;
+		this.arrivalTimes = arrivalTimes;
+		this.burstTimes = burstTimes;
 		this.processes = new Process[burstTimes.length];
 		createProcesses(burstTimes, arrivalTimes);
 		this.jobQueue = new FirstComeFirstServe(this.timeframe, this.processes).getJobQueue();
@@ -22,6 +26,8 @@ public class ProcessBag {
 		super();
 		this.timeframe = timeframe;
 		this.processes = new Process[burstTimes.length];
+		this.arrivalTimes = arrivalTimes;
+		this.burstTimes = burstTimes;
 		createProcesses(burstTimes, arrivalTimes);
 		if (isSJF) {
 			this.jobQueue = new ShortestJobFirst(timeframe, processes).getJobQueue();
@@ -36,6 +42,8 @@ public class ProcessBag {
 		super();
 		this.timeframe = timeframe;
 		this.processes = new Process[burstTimes.length];
+		this.arrivalTimes = arrivalTimes;
+		this.burstTimes = burstTimes;
 		createProcesses(burstTimes, arrivalTimes);
 		addPriorityLevels(priorityLevels);
 		this.jobQueue = new Priority(timeframe, processes).getJobQueue();
@@ -47,6 +55,8 @@ public class ProcessBag {
 		super();
 		this.timeframe = timeframe;
 		this.processes = new Process[burstTimes.length];
+		this.arrivalTimes = arrivalTimes;
+		this.burstTimes = burstTimes;
 		createProcesses(burstTimes, arrivalTimes);
 		this.quantum = quantum;
 		this.jobQueue = new RoundRobin(timeframe, processes, quantum).getJobQueue();
@@ -142,5 +152,31 @@ public class ProcessBag {
 	public void setJobQueue(int[] jobQueue) {
 		this.jobQueue = jobQueue;
 	}
+
+	public int[] getArrivalTimes() {
+		return arrivalTimes;
+	}
+
+	public void setArrivalTimes(int[] arrivalTimes) {
+		this.arrivalTimes = arrivalTimes;
+	}
+
+	public int[] getBurstTimes() {
+		return burstTimes;
+	}
+
+	public void setBurstTimes(int[] burstTimes) {
+		this.burstTimes = burstTimes;
+	}
+
+	public void setAverageWaitingTime(double averageWaitingTime) {
+		this.averageWaitingTime = averageWaitingTime;
+	}
+
+	public void setAverageTurnaroundTime(double averageTurnaroundTime) {
+		this.averageTurnaroundTime = averageTurnaroundTime;
+	}
+	
+	
 
 }

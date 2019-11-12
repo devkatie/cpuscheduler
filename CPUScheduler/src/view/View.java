@@ -29,6 +29,8 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.GanttSceneBuilder;
+import model.GanttStringBuilder;
+import model.Process;
 import model.ProcessBag;
 
 public class View extends Application {
@@ -782,6 +784,7 @@ public class View extends Application {
 				arrivalTimes = parseArray(arrivalTextFields, nElems);
 				burstTimes = parseArray(burstTextFields, nElems);
 				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes);
+				
 //				System.out.println("FCFS");
 				break;
 			case 1:
@@ -813,8 +816,26 @@ public class View extends Application {
 			
 			}
 			
+			String ganttString = new GanttStringBuilder(processBag).getGanttString();
+//			testing out that this implementation ( ^ ) works
+//			System.out.println(ganttString); 
+			String[] ganttArray = ganttString.split(" -> ");
+			String[] ganttChartArray = new String[200];
+			int num = 0;
+			for(int i = 0; i < ganttArray.length; i++) {
+				if(!(ganttArray[i].equals("IDLE"))) {
+					ganttChartArray[num] = ganttArray[i];
+					num++;
+				}
+			}
+			for (int i = 0; i < ganttChartArray.length; i++) {
+				if(ganttChartArray[i] != null) {
+					System.out.print(ganttChartArray[i] + " ");
+				}
+			}
 			
-			new GanttSceneBuilder(processBag).showGanttScene();
+			
+//			new GanttSceneBuilder(processBag).showGanttScene();
 			
 			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
 			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));
@@ -1309,6 +1330,9 @@ public class View extends Application {
 		// Visualization of Gantt Chart
 		//
 		HBox ganttChart = new HBox();
+		
+//		Process[] jobQ = this.processBag.getProcesses();
+//		new GanttStringBuilder(processBag).getGanttString()
 		
 		chart1 = new StackPane();
 		Text chart1text = new Text("P1");

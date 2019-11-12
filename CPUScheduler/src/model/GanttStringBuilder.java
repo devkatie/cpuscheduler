@@ -40,17 +40,17 @@ public class GanttStringBuilder {
 		}
 		
 //adds each processes waiting and arrival times to the String
-		ganttString += HEADER;
-		for (int i = 0; i < nElems; i++) {
-			ganttString += "P" + processBag.getProcesses()[i].getProcessNumber() + "\t\t\t"
-					+ processBag.getProcessWaitingTime(i + 1) +"       \t\t" + processBag.getProcessTurnaroundTime(i + 1) + "\n";
-		}
+//		ganttString += HEADER;
+//		for (int i = 0; i < nElems; i++) {
+//			ganttString += "P" + processBag.getProcesses()[i].getProcessNumber() + "\t\t\t"
+//					+ processBag.getProcessWaitingTime(i + 1) +"       \t\t" + processBag.getProcessTurnaroundTime(i + 1) + "\n";
+//		}
 		
-		ganttString += AVERAGES + "\t" + processBag.getAverageWaitingTime() + "\t\t\t" + processBag.getAverageTurnaroundTime();
+//		ganttString += AVERAGES + "\t" + processBag.getAverageWaitingTime() + "\t\t\t" + processBag.getAverageTurnaroundTime();
 		
 		
 //builds the GanttChart by tracking changes in jobQueue values
-		ganttString += GANTT_CHART_HEADER;
+//		ganttString += GANTT_CHART_HEADER;
 		
 		for(int i = 1; i < jobQueue.length; i++) {
 			if(jobQueue[i] != jobQueue[i-1]) {

@@ -1,5 +1,6 @@
 package view;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import javafx.*;
@@ -32,6 +33,7 @@ import model.ProcessBag;
 public class View extends Application {
 
 	Scene PRIMARY_SCENE;
+	private ProcessBag processBag;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -469,271 +471,353 @@ public class View extends Application {
 		// to determine witch algorithm to use. then, based off
 		// of the input values for each field, calculations will be done
 		calculate.setOnAction(e -> {
+			TextField[] burstTextFields = new TextField[8];
+			TextField[] arrivalTextFields = new TextField[8];
+			TextField[] priorityTextFields = new TextField[8];
 			
-			ProcessBag processBag = null;
+			burstTextFields[0] = burst1;
+			burstTextFields[1] = burst2;
+			burstTextFields[2] = burst3;
+			burstTextFields[3] = burst4;
+			burstTextFields[4] = burst5;
+			burstTextFields[5] = burst6;
+			burstTextFields[6] = burst7;
+			burstTextFields[7] = burst8;
+			
+			arrivalTextFields[0] = arrival1;
+			arrivalTextFields[1] = arrival2;
+			arrivalTextFields[2] = arrival3;
+			arrivalTextFields[3] = arrival4;
+			arrivalTextFields[4] = arrival5;
+			arrivalTextFields[5] = arrival6;
+			arrivalTextFields[6] = arrival7;
+			arrivalTextFields[7] = arrival8;
+			
+			priorityTextFields[0] = priority1;
+			priorityTextFields[1] = priority2;
+			priorityTextFields[2] = priority3;
+			priorityTextFields[3] = priority4;
+			priorityTextFields[4] = priority5;
+			priorityTextFields[5] = priority6;
+			priorityTextFields[6] = priority7;
+			priorityTextFields[7] = priority8;
+		
+		
+//			System.out.println("HOPE THIS WORKS");
+//			
+//			int[] arrivalTimes = parseArray(arrivalTextFields);
+//			System.out.println("HOPE THIS WORKS");
+//			
+//			int[] priorityLevels = parseArray(priorityTextFields);
+			
+//			System.out.println(arrivalTimes);
+//			System.out.println(priorityLevels);
+
+			
+			
+			int nElems = 0;
+			int algorithm = 0;
 			
 			switch(algoCombos.getValue()) {
 			case "PRI: Priority":
+				algorithm = 3;
 				switch(processCombos.getValue()) {
 				case "1 Process":
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 1;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					// Priority Process for 1 process
 					break;
 				case "2 Processes":
 					// Priority Process for 2 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 2;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
 					// Priority for 3 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 3;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
 					// Priority for 4 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 4;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
 					// Priority for 5 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 5;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
 					// Priority for 6 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 6;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
 					// Priority for 7 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 7;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
 					// Priority for 8 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 8;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			case "RR: Round Robin":
+				algorithm = 4;
 				switch(processCombos.getValue()) {
 				case "1 Process":
 					// RR for 1 process
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 1;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "2 Processes":
 					// RR for 2 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 2;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
 					// RR for 3 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 3;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
 					// RR for 4 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 4;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
 					// RR for 5 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 5;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
 					// RR for 6 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 6;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
 					// RR for 7 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 7;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
 					// RR for 8 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 8;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			case "SJF: Shortest Job First":
+				algorithm = 2;
 				switch(processCombos.getValue()) {
 				case "1 Process":
 					// SJF for 1 process
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 1;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "2 Processes":
 					// SJF for 2 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 2;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
 					// SJF for 3 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 3;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
 					// SJF for 4 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 4;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
 					// SJF for 5 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 5;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
 					// SJF for 6 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 6;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
 					// SJF for 7 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 7;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
 					// SJF for 8 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 8;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			case "FCFS: First Come First Serve":
+				algorithm = 0;
 				switch(processCombos.getValue()) {
 				case "1 Process":
 					// FCFS for 1 process
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 1;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "2 Processes":
 					// FCFS for 2 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 2;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
 					// FCFS for 3 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 3;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
 					// FCFS for 4 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 4;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
 					// FCFS for 5 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 5;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
 					// FCFS for 6 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 6;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
 					// FCFS for 7 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 7;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
 					// FCFS for 8 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 8;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			case "SRTF: Shortest Remaining Time First":
+				algorithm = 1;
 				switch(processCombos.getValue()) {
 				case "1 Process":
 					// SRTF for 1 process
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 1;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "2 Processes":
 					// SRTF for 2 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 2;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "3 Processes":
 					// SRTF for 3 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 3;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "4 Processes":
 					// SRTF for 4 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 4;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "5 Processes":
 					// SRTF for 5 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 5;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "6 Processes":
 					// SRTF for 6 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 6;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "7 Processes":
 					// SRTF for 7 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 7;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				case "8 Processes":
 					// SRTF for 8 processes
-					
-					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
-					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
+					nElems = 8;
+//					avgWaitTime.setText(processBag.getAverageWaitingTime() + "");
+//					avgTurnaroundTime.setText(processBag.getAverageTurnaroundTime() + "");
 					break;
 				}
 				break;
 			}
+			int arrivalTimes[];
+			int burstTimes[];
+			int priorityLevels[];
+			switch(algorithm) {
+			case 0 : 
+				arrivalTimes = parseArray(arrivalTextFields, nElems);
+				burstTimes = parseArray(burstTextFields, nElems);
+				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes);
+				break;
+			case 1:
+				arrivalTimes = parseArray(arrivalTextFields, nElems);
+				burstTimes = parseArray(burstTextFields, nElems);
+				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, true);
+			case 2:
+				arrivalTimes = parseArray(arrivalTextFields, nElems);
+				burstTimes = parseArray(burstTextFields, nElems);
+				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, false);
+			case 3:
+				arrivalTimes = parseArray(arrivalTextFields, nElems);
+				burstTimes = parseArray(burstTextFields, nElems);
+				priorityLevels = parseArray(priorityTextFields, nElems);
+				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, priorityLevels);
+			case 4:
+				int quantum = 5;
+				arrivalTimes = parseArray(arrivalTextFields, nElems);
+				burstTimes = parseArray(burstTextFields, nElems);
+				this.processBag = new ProcessBag(200, burstTimes, arrivalTimes, quantum);
+			
+			}
+			avgWaitTime.setText(Double.toString(processBag.getAverageWaitingTime()));
+			avgTurnaroundTime.setText(Double.toString(processBag.getAverageTurnaroundTime()));
+			
+			
 		});
 		
 		//
@@ -1168,6 +1252,7 @@ public class View extends Application {
 				burst8.clear();
 				arrival8.clear();
 				priority8.clear();
+		
 				break;
 			default:
 				process1.setVisible(false);
@@ -1302,6 +1387,30 @@ public class View extends Application {
 	
 	public Scene getScene() {
 		return PRIMARY_SCENE;
+	}
+	
+	public int[] parseArray(TextField[] textFields, int nElems) {
+		int [] times = new int [nElems];
+		int count = 0;
+		for(int i = 0; i < nElems; i++) {
+			if(textFields[i].isVisible()  && !textFields[i].equals("")) {
+				times[i] = Integer.parseInt(textFields[i].getText());
+			}else {
+				break;
+			}	
+			
+		}
+		return times;
+		
+	}
+
+	private int[] trimArray(int[] array, int count) {
+		int[] trimmedArray = new int[count];
+		for(int i = 0; i < count; i++) {
+			trimmedArray[i] = array[i];
+		}
+		return trimmedArray;
+		
 	}
 	
 }

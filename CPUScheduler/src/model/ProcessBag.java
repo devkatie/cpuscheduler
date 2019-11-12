@@ -3,6 +3,8 @@ package model;
 // Written by: Danny Fayaud
 // The ProcessBag is the class that is passed to View. It contains all of the necessary data for displaying algorithm output.
 
+
+
 public class ProcessBag {
 
 	private Process[] processes;

@@ -7,7 +7,7 @@ package model;
 /* PROJECT ASSUMPTIONS: 1) CPUScheduler works with a maximum Ready Queue of eight processes.
  * 						2) The timeframe for processes to execute is limited to 200 units.  Processes can be added that would not complete in
  * 							this timeframe; however, their waiting and turnaround times will be both be set to zero, and those values
- * 							would not be used when calculating average waiting and turnaround time.   
+ * 							would not be used when calculating average waiting and turnaround time.     
  */
 
 

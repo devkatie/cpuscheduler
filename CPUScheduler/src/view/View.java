@@ -28,6 +28,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.CalculatorAlert;
 import model.GanttSceneBuilder;
 import model.ProcessBag;
 
@@ -506,6 +507,7 @@ public class View extends Application {
 			
 			int nElems = 0;
 			int algorithm = 0;
+			
 			
 			switch(algoCombos.getValue()) {
 			case "PRI: Priority":
